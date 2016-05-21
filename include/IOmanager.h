@@ -1,0 +1,19 @@
+#ifndef IOMANAGER_H
+#define IOMANAGER_H
+
+#include <vector>
+#include <string>
+#include <fstream>
+class IOmanager
+{
+    public:
+        static bool readFileToBuffer(const std::string& filePath,std::vector<char>& buffer);
+        IOmanager();
+        virtual ~IOmanager();
+
+    protected:
+
+    private:
+};
+
+#endif // IOMANAGER_H
