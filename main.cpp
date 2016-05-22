@@ -8,7 +8,8 @@
 #include "sprite.h"
 #include "GLSLthingy.h"
 #include <memory>
-#include "Picoong.cpp"
+//#include "Picoong.cpp"
+
 GLfloat tocoords(const int &pixels){
 return (2.0*pixels/640.0)-1.0;
 }
@@ -82,30 +83,21 @@ int main(int argc,char ** argv)
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
         /* Poll for and process events */
         glfwPollEvents();
-        if(glfwGetKey(window,GLFW_KEY_A)){
-            std::cout<<"a"<<std::endl;
-        }
         glfwGetCursorPos(window, &xpos, &ypos);
         //colour.use();
         sp.draw();
         //colour.unuse();
         //glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
-        if(glfwGetMouseButton(window,GLFW_MOUSE_BUTTON_LEFT)==GLFW_PRESS){
-            sp.movex(1.0/640.0);
-            //sp.init();
-            if(sp.getx()>1.0) sp.setx(-1.0);
-            std::cout<<sp.getx()<<std::endl;
-            //std::cout<<tocoords(topixels(sp.getx())%640)<<std::endl;
-            //sp.setx(tocoords(topixels(sp.getx())%640));
-            //sp.setx(((sp.getx()+1)*320)-1);
-            //sp.init();
-            /*
-            vert[((clicks%4)*3)]=((2*xpos)/640)-1;//(xpos/640)-1;
-            std::cout<<((2*xpos)/640)-1<<" "<<-1*(2*ypos/480-1)<<((clicks%4)*3)+1<<std::endl;
-            vert[((clicks%4)*3)+1]=-1*(2*ypos/480-1);
-            ++clicks;*/
-        }
+        if(glfwGetKey(window,GLFW_KEY_RIGHT)) sp.movex(1.0/640.0);
+        if(glfwGetKey(window,GLFW_KEY_UP)) sp.movey(1.0/640.0);
+        if(glfwGetKey(window,GLFW_KEY_LEFT)) sp.movex(-1.0/640.0);
+        if(glfwGetKey(window,GLFW_KEY_DOWN)) sp.movey(-1.0/640.0);
+
+        if(sp.getx()+sp.getheight()>1.0) sp.setx(-1.0);
+        if(sp.gety()>1.0) sp.sety(-1.0);
+        if(sp.getx()<-1.0) sp.setx(1.0);
+        if(sp.gety()<-1.0) sp.sety(1.0);
         //std::cout<<xpos<<" "<<ypos<<std::endl;
         //std::cout<<test<<std::endl;
 

@@ -6,6 +6,7 @@
 #include "GLSLthingy.h"
 #include "vertex.h"
 #include <cstddef>
+//#include "../Picoong.cpp"
 typedef unsigned int uint;
 class sprite
 {
@@ -21,6 +22,7 @@ class sprite
         virtual ~sprite();
         void init();
         void movex(const GLfloat &m);
+        void movey(const GLfloat &m);
 
     protected:
 

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1463801927 source:c:\users\cerw\desktop\cpp\try3\main.cpp
+1463905878 source:c:\users\cerw\desktop\cpp\try3\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<GL/glu.h>
@@ -7,6 +7,7 @@
 	<string>
 	"sprite.h"
 	"GLSLthingy.h"
+	<memory>
 
 1444709878 c:\users\cerw\desktop\cpp\try3\include\glfw\glfw3.h
 	<stddef.h>
@@ -41,10 +42,10 @@
 	<stdio.h>
 	<GLFW/glfw3.h>
 
-1463808009 source:c:\users\cerw\desktop\cpp\try3\src\sprite.cpp
+1463905849 source:c:\users\cerw\desktop\cpp\try3\src\sprite.cpp
 	"sprite.h"
 
-1463799482 c:\users\cerw\desktop\cpp\try3\include\sprite.h
+1463905560 c:\users\cerw\desktop\cpp\try3\include\sprite.h
 	<string>
 	<GL/glew.h>
 	<cstdlib>
@@ -64,4 +65,7 @@
 	<vector>
 	<string>
 	<fstream>
+
+1463903610 c:\users\cerw\desktop\cpp\try3\picoong.cpp
+	<vector>
 

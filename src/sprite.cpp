@@ -74,16 +74,21 @@ x_coord = x;
 void sprite::sety(const GLfloat& y){
 y_coord = y;
 }
-inline GLfloat sprite::getheight(){
+GLfloat sprite::getheight(){
     return height;
 }
-inline GLfloat sprite::getlength(){
+GLfloat sprite::getlength(){
     return length;
 }
 void sprite::movex(const GLfloat &m){
 x_coord+=m;
 init();
 }
+void sprite::movey(const GLfloat &m){
+y_coord+=m;
+init();
+}
+
 void sprite::draw(){
 time+=0.0005f;
 
