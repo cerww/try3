@@ -2,7 +2,7 @@
 #include <GLFW/glfw3.h>
 //#include <GL/glx.h>
 //#include <GL/gl.h>
-#include <GL/glu.h>
+//#include <GL/glu.h>
 #include <iostream>
 #include <string>
 #include "sprite.h"

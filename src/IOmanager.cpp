@@ -1,6 +1,6 @@
 #include "IOmanager.h"
 
-static bool readFileToBuffer(const std::string& filePath,std::vector<char>& buffer){
+bool IOmanager::readFileToBuffer(const std::string& filePath,std::vector<unsigned char>& buffer){
     std::fstream file(filePath,std::ios::binary);
     if(file.fail()){
         perror(filePath.c_str());
@@ -12,7 +12,7 @@ static bool readFileToBuffer(const std::string& filePath,std::vector<char>& buff
     file.seekg(0,std::ios::beg);
     filesize -=file.tellg();
     buffer.resize(filesize);
-    file.read(&buffer[0],filesize);
+    file.read((char*)&buffer[0],filesize);
     file.close();
     return true;
 }
@@ -25,3 +25,4 @@ IOmanager::~IOmanager()
 {
     //dtor
 }
+

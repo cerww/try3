@@ -7,7 +7,7 @@
 class IOmanager
 {
     public:
-        static bool readFileToBuffer(const std::string& filePath,std::vector<char>& buffer);
+        static bool readFileToBuffer(const std::string& filePath,std::vector<unsigned char>& buffer);
         IOmanager();
         virtual ~IOmanager();
 

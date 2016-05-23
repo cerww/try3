@@ -1,12 +1,13 @@
 #ifndef SPRITE_H
 #define SPRITE_H
+//#include "Picoong.cpp"
 #include <string>
 #include <GL/glew.h>
 #include <cstdlib>
 #include "GLSLthingy.h"
 #include "vertex.h"
 #include <cstddef>
-//#include "../Picoong.cpp"
+//
 typedef unsigned int uint;
 class sprite
 {

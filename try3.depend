@@ -1,8 +1,7 @@
 # depslib dependency file v1.0
-1463905878 source:c:\users\cerw\desktop\cpp\try3\main.cpp
+1463966701 source:c:\users\cerw\desktop\cpp\try3\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
-	<GL/glu.h>
 	<iostream>
 	<string>
 	"sprite.h"
@@ -45,7 +44,7 @@
 1463905849 source:c:\users\cerw\desktop\cpp\try3\src\sprite.cpp
 	"sprite.h"
 
-1463905560 c:\users\cerw\desktop\cpp\try3\include\sprite.h
+1463966710 c:\users\cerw\desktop\cpp\try3\include\sprite.h
 	<string>
 	<GL/glew.h>
 	<cstdlib>
@@ -58,14 +57,43 @@
 
 1463549828 source:c:\users\cerw\desktop\cpp\try3\src\vertex.cpp
 
-1463797871 source:c:\users\cerw\desktop\cpp\try3\src\iomanager.cpp
+1463973416 source:c:\users\cerw\desktop\cpp\try3\src\iomanager.cpp
 	"IOmanager.h"
 
-1463794624 c:\users\cerw\desktop\cpp\try3\include\iomanager.h
+1463969882 c:\users\cerw\desktop\cpp\try3\include\iomanager.h
 	<vector>
 	<string>
 	<fstream>
 
 1463903610 c:\users\cerw\desktop\cpp\try3\picoong.cpp
+	<vector>
+
+1463903610 c:\users\cerw\desktop\cpp\try3\/src\picoong.cpp
+	<vector>
+
+1463903610 c:\users\cerw\desktop\cpp\try3\include\picoong.cpp
+	<vector>
+
+1463966937 source:c:\users\cerw\desktop\cpp\try3\src\texture.cpp
+	"texture.h"
+
+1463970263 c:\users\cerw\desktop\cpp\try3\include\texture.h
+	<GL/glew.h>
+
+1463973349 source:c:\users\cerw\desktop\cpp\try3\src\imgloader.cpp
+	"imgLoader.h"
+	"picopng.h"
+	"IOmanager.h"
+	"stdio.h"
+	<GLFW/glfw3.h>
+
+1463969897 c:\users\cerw\desktop\cpp\try3\include\imgloader.h
+	"texture.h"
+	<string>
+
+1463966892 c:\users\cerw\desktop\cpp\try3\include\picopng.h
+	<vector>
+
+1463970226 source:c:\users\cerw\desktop\cpp\try3\include\picopng.cpp
 	<vector>
 
