@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1463966701 source:c:\users\cerw\desktop\cpp\try3\main.cpp
+1464028799 source:c:\users\cerw\desktop\cpp\try3\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<iostream>
@@ -80,14 +80,14 @@
 1463970263 c:\users\cerw\desktop\cpp\try3\include\texture.h
 	<GL/glew.h>
 
-1463973349 source:c:\users\cerw\desktop\cpp\try3\src\imgloader.cpp
+1463973766 source:c:\users\cerw\desktop\cpp\try3\src\imgloader.cpp
 	"imgLoader.h"
 	"picopng.h"
 	"IOmanager.h"
 	"stdio.h"
 	<GLFW/glfw3.h>
 
-1463969897 c:\users\cerw\desktop\cpp\try3\include\imgloader.h
+1463973773 c:\users\cerw\desktop\cpp\try3\include\imgloader.h
 	"texture.h"
 	<string>
 

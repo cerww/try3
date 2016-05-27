@@ -16,6 +16,9 @@ return (2.0*pixels/640.0)-1.0;
 int topixels(const GLfloat &coords){
 return (coords+1.0)*320.0;
 }
+bool ifPointinBox(const int &x,const int& y,const int& p1,const int& p2,const int& l,const int& h){
+return x>p1&&x<p1+l&&;
+}
 int main(int argc,char ** argv)
 {
     //std::cout<<glewGetString(GLEW_VERSION)<<std::endl;
@@ -27,8 +30,7 @@ int main(int argc,char ** argv)
     GLFWwindow* window;
     /* Create a windowed mode window and its OpenGL context */
     window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-    if (!window)
-    {
+    if (!window){
         glfwTerminate();
         return -1;
     }
@@ -36,13 +38,6 @@ int main(int argc,char ** argv)
 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
-    GLfloat vert[]={
-        0.0,0.0,0.0,
-        0.0,0.0,0.0,
-        0.0,0.0,0.0,
-        0.0,0.0,0.0
-
-    };//0.5,-0.5,0.0
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -60,7 +55,7 @@ int main(int argc,char ** argv)
     //glfwWindowHint();
     /* Loop until the user closes the window */
     int clicks = 0;
-    sprite sp(-0.5,0.5,0.5,-0.5,(0<<24)+(255<<16)+(0<<8)+255);
+    sprite sp(-0.5,0.5,0.5,-0.5,(50<<24)+(255<<16)+(40<<8)+255);
 
     GLSLthingy colour;
     colour.compileshad("shaderthingy.vert","shaderthingu.frag");
@@ -94,15 +89,14 @@ int main(int argc,char ** argv)
         if(glfwGetKey(window,GLFW_KEY_LEFT)) sp.movex(-1.0/640.0);
         if(glfwGetKey(window,GLFW_KEY_DOWN)) sp.movey(-1.0/640.0);
 
-        if(sp.getx()+sp.getheight()>1.0) sp.setx(-1.0);
-        if(sp.gety()>1.0) sp.sety(-1.0);
-        if(sp.getx()<-1.0) sp.setx(1.0);
+        if((sp.getx())>1.0) sp.setx(-1.0);
+        if(sp.gety()+sp.getheight()>1.0) sp.sety(-1.0);
+        if(sp.getx()+sp.getlength()<-1.0) sp.setx(1.0);
         if(sp.gety()<-1.0) sp.sety(1.0);
         //std::cout<<xpos<<" "<<ypos<<std::endl;
         //std::cout<<test<<std::endl;
-
     }
-
     glfwTerminate();
+    //delete window;
     return 0;
 }

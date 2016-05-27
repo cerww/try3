@@ -49,12 +49,18 @@
 		</Linker>
 		<Unit filename="include/GLSLthingy.h" />
 		<Unit filename="include/IOmanager.h" />
+		<Unit filename="include/imgLoader.h" />
+		<Unit filename="include/picopng.cpp" />
+		<Unit filename="include/picopng.h" />
 		<Unit filename="include/sprite.h" />
+		<Unit filename="include/texture.h" />
 		<Unit filename="include/vertex.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/GLSLthingy.cpp" />
 		<Unit filename="src/IOmanager.cpp" />
+		<Unit filename="src/imgLoader.cpp" />
 		<Unit filename="src/sprite.cpp" />
+		<Unit filename="src/texture.cpp" />
 		<Unit filename="src/vertex.cpp" />
 		<Extensions>
 			<code_completion />
