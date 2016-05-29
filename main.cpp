@@ -16,8 +16,8 @@ return (2.0*pixels/640.0)-1.0;
 int topixels(const GLfloat &coords){
 return (coords+1.0)*320.0;
 }
-bool ifPointinBox(const int &x,const int& y,const int& p1,const int& p2,const int& l,const int& h){
-return x>p1&&x<p1+l&&;
+bool PointinBox(const int &x,const int& y,const int& p1,const int& p2,const int& l,const int& h){
+return x>p1&&x<p1+l&&y>p2&&y<p2+h;
 }
 int main(int argc,char ** argv)
 {
@@ -93,6 +93,11 @@ int main(int argc,char ** argv)
         if(sp.gety()+sp.getheight()>1.0) sp.sety(-1.0);
         if(sp.getx()+sp.getlength()<-1.0) sp.setx(1.0);
         if(sp.gety()<-1.0) sp.sety(1.0);
+        double xpos, ypos;
+        glfwGetCursorPos(window, &xpos, &ypos);
+        if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT)==GLFW_PRESS&&PointinBox(xpos,ypos,coordtopixelsp.getx()sp.getheight())){
+
+        }
         //std::cout<<xpos<<" "<<ypos<<std::endl;
         //std::cout<<test<<std::endl;
     }
