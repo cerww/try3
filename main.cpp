@@ -29,7 +29,7 @@ int main(int argc,char ** argv)
         return -1;
     GLFWwindow* window;
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+    window = glfwCreateWindow(640, 640, "Hello World", NULL, NULL);
     if (!window){
         glfwTerminate();
         return -1;
@@ -89,14 +89,17 @@ int main(int argc,char ** argv)
         if(glfwGetKey(window,GLFW_KEY_LEFT)) sp.movex(-1.0/640.0);
         if(glfwGetKey(window,GLFW_KEY_DOWN)) sp.movey(-1.0/640.0);
 
-        if((sp.getx())>1.0) sp.setx(-1.0);
+        if(sp.getx()>1.0) sp.setx(-1.0);
         if(sp.gety()+sp.getheight()>1.0) sp.sety(-1.0);
         if(sp.getx()+sp.getlength()<-1.0) sp.setx(1.0);
         if(sp.gety()<-1.0) sp.sety(1.0);
-        double xpos, ypos;
-        glfwGetCursorPos(window, &xpos, &ypos);
-        if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT)==GLFW_PRESS&&PointinBox(xpos,ypos,coordtopixelsp.getx()sp.getheight())){
-
+        if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT)==GLFW_PRESS//){
+           &&PointinBox(xpos,ypos,topixels(sp.getx()),topixels(-1.0*sp.gety()),topixels(sp.getlength()-1),topixels(-1.0*(sp.getheight()+1)))){
+        //if(PointinBox(50,50,0,0,600,600)){
+            //std::cout<<"abc"<<std::endl;
+            //std::cout<<xpos<<":"<<ypos<<std::endl;
+            //std::cout<<sp.getheight()<<std::endl;
+            //std::cout<<topixels(sp.getx())<<":"<<topixels(-1.0*sp.gety())<<":"<<topixels(-1.0*(sp.getheight()+1.0))<<":"<<topixels(sp.getlength()-1.0)<<std::endl;
         }
         //std::cout<<xpos<<" "<<ypos<<std::endl;
         //std::cout<<test<<std::endl;

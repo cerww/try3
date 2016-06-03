@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1464028799 source:c:\users\cerw\desktop\cpp\try3\main.cpp
+1464497565 source:c:\users\cerw\desktop\cpp\try3\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<iostream>
