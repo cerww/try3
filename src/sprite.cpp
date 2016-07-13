@@ -1,7 +1,7 @@
 #include "sprite.h"
 
 sprite::sprite(const GLfloat &x,const GLfloat &y,const GLfloat &l,const GLfloat &h,const GLuint &C):
-    time(0.0f),
+    //time(0.0f),
     x_coord(x),
     y_coord(y),
     length(l),
@@ -10,11 +10,16 @@ sprite::sprite(const GLfloat &x,const GLfloat &y,const GLfloat &l,const GLfloat 
 {
 _vboID = 0;
 init();
+shaderthinga();
+
+//timeLocation = shader.getUniformLocate("time");
+}
+void sprite::shaderthinga(){
 shader.compileshad("shaderthingy.vert","shaderthingu.frag");
 shader.addAttribute("vertexPos");
 shader.addAttribute("vertexColor");
+shader.addAttribute("vertUV");
 shader.linkshader();
-timeLocation = shader.getUniformLocate("time");
 }
 void sprite::init(){
 if(!_vboID) glGenBuffers(1,&_vboID);
@@ -62,10 +67,10 @@ sprite::~sprite()
 {
     if(_vboID) glDeleteBuffers(1,&_vboID);
 }
-GLfloat sprite::getx(){
+GLfloat sprite::getx()const{
 return x_coord;
 }
-GLfloat sprite::gety(){
+GLfloat sprite::gety()const{
 return y_coord;
 }
 void sprite::setx(const GLfloat& x){
@@ -74,10 +79,10 @@ x_coord = x;
 void sprite::sety(const GLfloat& y){
 y_coord = y;
 }
-GLfloat sprite::getheight(){
+GLfloat sprite::getheight()const{
     return height;
 }
-GLfloat sprite::getlength(){
+GLfloat sprite::getlength()const{
     return length;
 }
 void sprite::movex(const GLfloat &m){
@@ -90,11 +95,11 @@ init();
 }
 
 void sprite::draw(){
-time+=0.0005f;
+//time+=0.0005f;
 
 //std::cout<<time<<std::endl;
 shader.use();
-glUniform1f(timeLocation,time);
+//glUniform1f(timeLocation,time);
 glBindBuffer(GL_ARRAY_BUFFER,_vboID);
 glEnableVertexAttribArray(0);
 glVertexAttribPointer(0,2,GL_FLOAT,GL_FALSE,sizeof(Vertex),offsetof(Vertex,pos));

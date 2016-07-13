@@ -3,13 +3,16 @@
 //#include <GL/glx.h>
 //#include <GL/gl.h>
 //#include <GL/glu.h>
+#include "imgLoader.h"
 #include <iostream>
 #include <string>
 #include "sprite.h"
 #include "GLSLthingy.h"
 #include <memory>
-//#include "Picoong.cpp"
-
+#include "texture.h"
+#include "pic.h"
+#include <fstream>
+#include "app.h"
 GLfloat tocoords(const int &pixels){
 return (2.0*pixels/640.0)-1.0;
 }
@@ -19,17 +22,18 @@ return (coords+1.0)*320.0;
 bool PointinBox(const int &x,const int& y,const int& p1,const int& p2,const int& l,const int& h){
 return x>p1&&x<p1+l&&y>p2&&y<p2+h;
 }
-int main(int argc,char ** argv)
-{
-    //std::cout<<glewGetString(GLEW_VERSION)<<std::endl;
-
-
+void dothings(const std::unique_ptr<int> &l){
+*l+=1;
+}
+int main(int argc,char ** argv){
     /* Initialize the library */
     if (!glfwInit())
         return -1;
+
     GLFWwindow* window;
     /* Create a windowed mode window and its OpenGL context */
     window = glfwCreateWindow(640, 640, "Hello World", NULL, NULL);
+    //window = glfwCreateWindow(1920, 1080, "Hello World", NULL, NULL);
     if (!window){
         glfwTerminate();
         return -1;
@@ -46,23 +50,25 @@ int main(int argc,char ** argv)
     if(glewInit()!=GLEW_OK){
         std::cout<<"a"<<std::endl;
         return -1;
-    }/*
-    GLuint VBO =0;
+    }
+    //GLFWwindow* window2;
+    //window2= glfwCreateWindow(400,400,"abc",NULL,NULL);
+    /*GLuint VBO =0;
     glGenBuffers(1,&VBO);
     glBindBuffer(GL_ARRAY_BUFFER,VBO);
     glBufferData(GL_ARRAY_BUFFER,sizeof(vert),vert,GL_DYNAMIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER,0);
-    //glfwWindowHint();
+    //glfwWindowHint();*/
     /* Loop until the user closes the window */
-    int clicks = 0;
-    sprite sp(-0.5,0.5,0.5,-0.5,(50<<24)+(255<<16)+(40<<8)+255);
+    //sprite sp(-0.5,0.5,0.5,-0.5,(50<<24)+(255<<16)+(40<<8)+255);
 
-    GLSLthingy colour;
-    colour.compileshad("shaderthingy.vert","shaderthingu.frag");
-    colour.addAttribute("vertexPos");
-    colour.linkshader();/* */
     double xpos, ypos;
     //glfwSwapInterval(1);
+    texture t;
+    app a(window);
+    t = imgLoader::loadPNG("PNG/CharacterLeft_Jump.png");
+    pic aPic(0.9,0.0,0.5,0.5,t);
+    sprite sp(-0.5,0.5,0.5,-0.5,(50<<24)+(255<<16)+(40<<8)+255);
     while (!glfwWindowShouldClose(window)){
 
         //glClearColor(0.0,0.0,1.0,1.0);
@@ -74,25 +80,30 @@ int main(int argc,char ** argv)
         glDisableClientState(GL_VERTEX_ARRAY);
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
-        glClearColor(0.0f, 1.0f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
+        glClearColor(0.0,0.75,0.5,1.0);
         /* Poll for and process events */
         glfwPollEvents();
+        a.update();
         glfwGetCursorPos(window, &xpos, &ypos);
+        //glfwSetCursorPos(window,400,400);
         //colour.use();
-        sp.draw();
+        //sp.draw();
+        aPic.draw();
         //colour.unuse();
         //glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-
-        if(glfwGetKey(window,GLFW_KEY_RIGHT)) sp.movex(1.0/640.0);
-        if(glfwGetKey(window,GLFW_KEY_UP)) sp.movey(1.0/640.0);
-        if(glfwGetKey(window,GLFW_KEY_LEFT)) sp.movex(-1.0/640.0);
-        if(glfwGetKey(window,GLFW_KEY_DOWN)) sp.movey(-1.0/640.0);
+        //std::cout<<a.getMouseButton("left")<<std::endl;
+        if(a.getKey("right")) sp.movex(1.0/640.0);
+        if(a.getKey("up")) sp.movey(1.0/640.0);
+        if(a.getKey("left")) sp.movex(-1.0/640.0);
+        if(a.getKey("down")) sp.movey(-1.0/640.0);
 
         if(sp.getx()>1.0) sp.setx(-1.0);
-        if(sp.gety()+sp.getheight()>1.0) sp.sety(-1.0);
+        if(sp.gety()+sp.getheight()>1.0) sp.sety(-1.0);else ;
         if(sp.getx()+sp.getlength()<-1.0) sp.setx(1.0);
         if(sp.gety()<-1.0) sp.sety(1.0);
+        if(a.getMouseButton("left")%200==199) std::cout<<(a.getMouseX()*2.0/640.0)-1<<std::endl;
+        if(a.getMouseButton("right")) std::cout<<-1*(a.getMouseY()*2.0/640.0)+1<<std::endl;
         if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT)==GLFW_PRESS//){
            &&PointinBox(xpos,ypos,topixels(sp.getx()),topixels(-1.0*sp.gety()),topixels(sp.getlength()-1),topixels(-1.0*(sp.getheight()+1)))){
         //if(PointinBox(50,50,0,0,600,600)){

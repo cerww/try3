@@ -1,12 +1,17 @@
 # depslib dependency file v1.0
-1464497565 source:c:\users\cerw\desktop\cpp\try3\main.cpp
+1468230327 source:c:\users\cerw\desktop\cpp\try3\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
+	"imgLoader.h"
 	<iostream>
 	<string>
 	"sprite.h"
 	"GLSLthingy.h"
 	<memory>
+	"texture.h"
+	"pic.h"
+	<fstream>
+	"app.h"
 
 1444709878 c:\users\cerw\desktop\cpp\try3\include\glfw\glfw3.h
 	<stddef.h>
@@ -41,10 +46,10 @@
 	<stdio.h>
 	<GLFW/glfw3.h>
 
-1463905849 source:c:\users\cerw\desktop\cpp\try3\src\sprite.cpp
+1465801900 source:c:\users\cerw\desktop\cpp\try3\src\sprite.cpp
 	"sprite.h"
 
-1463966710 c:\users\cerw\desktop\cpp\try3\include\sprite.h
+1465801894 c:\users\cerw\desktop\cpp\try3\include\sprite.h
 	<string>
 	<GL/glew.h>
 	<cstdlib>
@@ -52,15 +57,16 @@
 	"vertex.h"
 	<cstddef>
 
-1463788851 c:\users\cerw\desktop\cpp\try3\include\vertex.h
+1468230206 c:\users\cerw\desktop\cpp\try3\include\vertex.h
 	<GL/glew.h>
 
 1463549828 source:c:\users\cerw\desktop\cpp\try3\src\vertex.cpp
 
-1463973416 source:c:\users\cerw\desktop\cpp\try3\src\iomanager.cpp
+1468117729 source:c:\users\cerw\desktop\cpp\try3\src\iomanager.cpp
 	"IOmanager.h"
+	<fstream>
 
-1463969882 c:\users\cerw\desktop\cpp\try3\include\iomanager.h
+1468225268 c:\users\cerw\desktop\cpp\try3\include\iomanager.h
 	<vector>
 	<string>
 	<fstream>
@@ -80,20 +86,47 @@
 1463970263 c:\users\cerw\desktop\cpp\try3\include\texture.h
 	<GL/glew.h>
 
-1463973766 source:c:\users\cerw\desktop\cpp\try3\src\imgloader.cpp
+1466755951 source:c:\users\cerw\desktop\cpp\try3\src\imgloader.cpp
 	"imgLoader.h"
 	"picopng.h"
 	"IOmanager.h"
 	"stdio.h"
+	<iostream>
 	<GLFW/glfw3.h>
 
 1463973773 c:\users\cerw\desktop\cpp\try3\include\imgloader.h
 	"texture.h"
 	<string>
 
-1463966892 c:\users\cerw\desktop\cpp\try3\include\picopng.h
+1467905312 c:\users\cerw\desktop\cpp\try3\include\picopng.h
 	<vector>
+	<cstdlib>
 
-1463970226 source:c:\users\cerw\desktop\cpp\try3\include\picopng.cpp
+1467904931 source:c:\users\cerw\desktop\cpp\try3\include\picopng.cpp
 	<vector>
+	<cstdlib>
+
+1466286722 source:c:\users\cerw\desktop\cpp\try3\src\app.cpp
+	"app.h"
+
+1466286731 c:\users\cerw\desktop\cpp\try3\include\app.h
+	<map>
+	<vector>
+	<iostream>
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<memory>
+
+1466569166 c:\users\cerw\desktop\cpp\try3\include\pic.h
+	"sprite.h"
+	<string>
+	<GL/glew.h>
+	<cstdlib>
+	"GLSLthingy.h"
+	"vertex.h"
+	<cstddef>
+	"texture.h"
+
+1468230397 source:c:\users\cerw\desktop\cpp\try3\src\pic.cpp
+	"pic.h"
 

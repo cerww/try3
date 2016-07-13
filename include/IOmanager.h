@@ -1,6 +1,6 @@
 #ifndef IOMANAGER_H
 #define IOMANAGER_H
-
+#pragma once
 #include <vector>
 #include <string>
 #include <fstream>

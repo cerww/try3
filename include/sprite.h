@@ -13,28 +13,28 @@ class sprite
 {
     public:
         sprite(const GLfloat &x,const GLfloat &y,const GLfloat &l,const GLfloat &h,const GLuint &C);
-        GLfloat getx();
-        GLfloat gety();
-        GLfloat getheight();
-        GLfloat getlength();
+        GLfloat getx() const;
+        GLfloat gety() const;
+        GLfloat getheight() const;
+        GLfloat getlength() const;
         void setx(const GLfloat&);
         void sety(const GLfloat&);
-        void draw();
+        virtual void draw();
         virtual ~sprite();
-        void init();
+        virtual void init();
         void movex(const GLfloat &m);
         void movey(const GLfloat &m);
-
+        void shaderthinga();
     protected:
 
     private:
-        GLuint timeLocation;
-        GLfloat time;
+        //GLuint timeLocation;
+        //GLfloat time;
         GLfloat x_coord;
         GLfloat y_coord;
         GLfloat length;
         GLfloat height;
-        GLuint corner_coords[4][2];
+        //GLuint corner_coords[4][2];
         GLuint _vboID;
         GLSLthingy shader;
         GLuint color;

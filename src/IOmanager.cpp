@@ -1,8 +1,9 @@
 #include "IOmanager.h"
+#include <fstream>
 
 bool IOmanager::readFileToBuffer(const std::string& filePath,std::vector<unsigned char>& buffer){
-    std::fstream file(filePath,std::ios::binary);
-    if(file.fail()){
+    std::ifstream file(filePath, std::ios::binary);
+    if (file.fail()) {
         perror(filePath.c_str());
         return false;
     }
