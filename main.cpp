@@ -13,6 +13,7 @@
 #include "pic.h"
 #include <fstream>
 #include "app.h"
+#include <ctime>
 GLfloat tocoords(const int &pixels){
 return (2.0*pixels/640.0)-1.0;
 }
@@ -24,6 +25,9 @@ return x>p1&&x<p1+l&&y>p2&&y<p2+h;
 }
 void dothings(const std::unique_ptr<int> &l){
 *l+=1;
+}
+int rgbColour(const char &r,const char &g,const char &b){
+return (r<<24)+(g<<16)+(b<<8)+255;
 }
 int main(int argc,char ** argv){
     /* Initialize the library */
@@ -51,6 +55,8 @@ int main(int argc,char ** argv){
         std::cout<<"a"<<std::endl;
         return -1;
     }
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
     //GLFWwindow* window2;
     //window2= glfwCreateWindow(400,400,"abc",NULL,NULL);
     /*GLuint VBO =0;
@@ -66,9 +72,16 @@ int main(int argc,char ** argv){
     //glfwSwapInterval(1);
     texture t;
     app a(window);
-    t = imgLoader::loadPNG("PNG/CharacterLeft_Jump.png");
-    pic aPic(0.9,0.0,0.5,0.5,t);
-    sprite sp(-0.5,0.5,0.5,-0.5,(50<<24)+(255<<16)+(40<<8)+255);
+    t = imgLoader::loadPNG("Enemy_Broccoli1.png");
+    GLSLthingy picthingy;
+    picthingy.compileshad("texture.vert","texture.frag");
+    picthingy.addAttribute("vertPosition");
+    picthingy.addAttribute("vertColor");
+    picthingy.addAttribute("vertUV");
+    picthingy.linkshader();
+    pic aPic(0,0.0,0.7,0.8,&t,&picthingy);
+    //sprite sp(0.5,0.5,0.5,-0.5,(50<<24)+(255<<16)+(40<<8)+255);
+    //sprite sp2(-0.5,0.5,0.5,-0.5,(50<<24)+(255<<16)+(40<<8)+255);
     while (!glfwWindowShouldClose(window)){
 
         //glClearColor(0.0,0.0,1.0,1.0);
@@ -80,8 +93,11 @@ int main(int argc,char ** argv){
         glDisableClientState(GL_VERTEX_ARRAY);
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
+        int width, height;
+        glfwGetFramebufferSize(window, &width, &height);
+        glViewport(0, 0, width, height);
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-        glClearColor(0.0,0.75,0.5,1.0);
+        glClearColor(1.0,1.0,1.0,1.0);
         /* Poll for and process events */
         glfwPollEvents();
         a.update();
@@ -89,33 +105,28 @@ int main(int argc,char ** argv){
         //glfwSetCursorPos(window,400,400);
         //colour.use();
         //sp.draw();
+
         aPic.draw();
         //colour.unuse();
         //glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
         //std::cout<<a.getMouseButton("left")<<std::endl;
-        if(a.getKey("right")) sp.movex(1.0/640.0);
-        if(a.getKey("up")) sp.movey(1.0/640.0);
-        if(a.getKey("left")) sp.movex(-1.0/640.0);
-        if(a.getKey("down")) sp.movey(-1.0/640.0);
-
-        if(sp.getx()>1.0) sp.setx(-1.0);
-        if(sp.gety()+sp.getheight()>1.0) sp.sety(-1.0);else ;
-        if(sp.getx()+sp.getlength()<-1.0) sp.setx(1.0);
-        if(sp.gety()<-1.0) sp.sety(1.0);
         if(a.getMouseButton("left")%200==199) std::cout<<(a.getMouseX()*2.0/640.0)-1<<std::endl;
         if(a.getMouseButton("right")) std::cout<<-1*(a.getMouseY()*2.0/640.0)+1<<std::endl;
-        if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT)==GLFW_PRESS//){
-           &&PointinBox(xpos,ypos,topixels(sp.getx()),topixels(-1.0*sp.gety()),topixels(sp.getlength()-1),topixels(-1.0*(sp.getheight()+1)))){
+        //if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT)==GLFW_PRESS//){
+        //   &&PointinBox(xpos,ypos,topixels(sp.getx()),topixels(-1.0*sp.gety()),topixels(sp.getlength()-1),topixels(-1.0*(sp.getheight()+1)))){
         //if(PointinBox(50,50,0,0,600,600)){
             //std::cout<<"abc"<<std::endl;
             //std::cout<<xpos<<":"<<ypos<<std::endl;
             //std::cout<<sp.getheight()<<std::endl;
             //std::cout<<topixels(sp.getx())<<":"<<topixels(-1.0*sp.gety())<<":"<<topixels(-1.0*(sp.getheight()+1.0))<<":"<<topixels(sp.getlength()-1.0)<<std::endl;
-        }
+
         //std::cout<<xpos<<" "<<ypos<<std::endl;
         //std::cout<<test<<std::endl;
+        //std::sleep(.001);
     }
     glfwTerminate();
     //delete window;
     return 0;
 }
+
+

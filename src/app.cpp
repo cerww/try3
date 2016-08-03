@@ -50,9 +50,11 @@ app::app(GLFWwindow* &window):_window(window),_ypos(0.0f),_xpos(0.0f){
 }
 int app::getKey(const std::string &key){
 return _keys.k[key];
-}int app::getMouseButton(const std::string &Button){
+}
+int app::getMouseButton(const std::string &Button){
 return _keys.m[Button];
 }
+
 double app::getMouseX() const{return _xpos;}
 double app::getMouseY() const{return _ypos;}
 void app::update(){
@@ -105,6 +107,12 @@ if(glfwGetKey(_window,GLFW_KEY_ESCAPE)) ++_keys.k["esc"]; else _keys.k["esc"]=0;
 if(glfwGetKey(_window,GLFW_KEY_SPACE)) ++_keys.k["space"]; else _keys.k["space"]=0;
 if(glfwGetKey(_window,GLFW_KEY_RIGHT_SHIFT)) ++_keys.k["Rshift"]; else _keys.k["Rshift"]=0;
 if(glfwGetKey(_window,GLFW_KEY_LEFT_SHIFT)) ++_keys.k["Lshift"]; else _keys.k["Lshift"]=0;
+}
+texture* app::getTexture(const std::string &textname){
+return &_textures[textname];
+}
+void app::addTexture(const std::string &name,const std::string&path){
+_textures[name]=imgLoader::loadPNG(path);
 }
 app::~app()
 {

@@ -11,11 +11,11 @@
 class pic
 {
     public:
-        pic(const GLfloat &x,const GLfloat &y,const GLfloat &l,const GLfloat &h,const texture &);
+        pic(const GLfloat &x,const GLfloat &y,const GLfloat &l,const GLfloat &h, texture* , GLSLthingy*);
         virtual ~pic();
         virtual void init();
         virtual void draw();
-        virtual void shaderthinga();
+        //virtual void shaderthinga();
         GLfloat getx() const;
         GLfloat gety() const;
         GLfloat getheight() const;
@@ -35,13 +35,13 @@ class pic
         GLfloat height;
         //GLuint corner_coords[4][2];
         GLuint _vboID;
-        GLSLthingy shader;
+        GLSLthingy* _shader;
         GLuint color;
         GLint _x;
         GLint _y;
         GLint _l;
         GLint _w;
-        texture _tex;
+        texture* _tex;
 };
 
 #endif // PIC_Haa

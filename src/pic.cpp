@@ -1,44 +1,51 @@
 #include "pic.h"
 
-pic::pic(const GLfloat &x,const GLfloat &y,const GLfloat &l,const GLfloat &h,const texture &tex):
+pic::pic(const GLfloat &x,const GLfloat &y,const GLfloat &l,const GLfloat &h, texture *tex, GLSLthingy* shader):
     x_coord(x),
     y_coord(y),
     length(l),
     height(h),
     color(0),
-    _tex(tex)
+    _tex(tex),
+    _shader(shader)
 {
     //ctor
     init();
-    shaderthinga();
 }
+/*
 void pic::shaderthinga(){
 shader.compileshad("texture.vert","texture.frag");
-shader.addAttribute("vertexPosition");
-shader.addAttribute("vertexColor");
+shader.addAttribute("vertPosition");
+shader.addAttribute("vertColor");
 shader.addAttribute("vertUV");
 shader.linkshader();
-}
+}*/
 void pic::init(){
 if(!_vboID) glGenBuffers(1,&_vboID);
 Vertex vertData[6];
 //vertData[6];
 
-
+/*
 vertData[0].setPosition(x_coord+length,y_coord);
 vertData[0].setUV(1.0f,0.0f);
+//vertData[0].setColour(255);
 vertData[1].setPosition(x_coord,y_coord+height);
 vertData[1].setUV(0.0f,1.0f);
+//vertData[1].setColour(255);
 vertData[2].setPosition(x_coord,y_coord);
 vertData[2].setUV(0.0f,0.0f);
+//vertData[2].setColour(255);
 // triangle #2
 vertData[3].setPosition(x_coord+length,y_coord);
 vertData[3].setUV(1.0f,0.0f);
+//vertData[3].setColour(255);
 vertData[4].setPosition(x_coord,y_coord+height);
 vertData[4].setUV(0.0f,1.0f);
+//vertData[4].setColour(255);
 vertData[5].setPosition(x_coord+length,y_coord+height);
 vertData[5].setUV(1.0f,1.0f);
-/*
+//vertData[5].setColour(255);
+*/
     vertData[0].setPosition(x_coord + length, y_coord + height);
     vertData[0].setUV(1.0f, 1.0f);
 
@@ -56,7 +63,8 @@ vertData[5].setUV(1.0f,1.0f);
     vertData[4].setUV(1.0f, 0.0f);
 
     vertData[5].setPosition(x_coord + length, y_coord + height);
-    vertData[5].setUV(1.0f, 1.0f);*/
+    vertData[5].setUV(1.0f, 1.0f);
+    /* */
 glBindBuffer(GL_ARRAY_BUFFER,_vboID);
 glBufferData(GL_ARRAY_BUFFER,sizeof(vertData),vertData,GL_DYNAMIC_DRAW);
 glBindBuffer(GL_ARRAY_BUFFER,0);
@@ -71,10 +79,11 @@ pic::~pic()
 }
 void pic::draw(){
 
-    shader.use();
+    _shader->use();
+
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D,_tex.id);
-    GLint textlocate=shader.getUniformLocate("Text");
+    glBindTexture(GL_TEXTURE_2D,_tex->id);
+    GLint textlocate=_shader->getUniformLocate("Text");
     glUniform1i(textlocate,0);
 
     glBindBuffer(GL_ARRAY_BUFFER,_vboID);
@@ -87,7 +96,7 @@ void pic::draw(){
     glBindBuffer(GL_ARRAY_BUFFER,0);
 
     glBindTexture(GL_TEXTURE_2D,0);
-    shader.unuse();
+    _shader->unuse();
 }
 GLfloat pic::getx()const{
 return x_coord;

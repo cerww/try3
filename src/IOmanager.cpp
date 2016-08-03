@@ -7,7 +7,7 @@ bool IOmanager::readFileToBuffer(const std::string& filePath,std::vector<unsigne
         perror(filePath.c_str());
         return false;
     }
-    file.seekg(0,std::ios::beg);
+    file.seekg(0,std::ios::end);
     int filesize = file.tellg();
     //buffer.resize(file.tellg());
     file.seekg(0,std::ios::beg);

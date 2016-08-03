@@ -91,6 +91,7 @@ void GLSLthingy::use(){
 glUseProgram(programID);
 for(int i =0;i<numAttribs;++i)
     glEnableVertexAttribArray(i);
+//std::cout<<programID<<std::endl;
 }
 void GLSLthingy::unuse(){
 glUseProgram(0);
@@ -100,7 +101,7 @@ for(int i =0;i<numAttribs;++i)
 GLint GLSLthingy::getUniformLocate(const std::string& uniName){
 GLint l =glGetUniformLocation(programID,uniName.c_str());
 if(l==GL_INVALID_INDEX){
-    printf("3\n");
+    printf("3\n %s was not found",&uniName[0]);
     glfwTerminate();
     }
 return l;

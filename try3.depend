@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1468230327 source:c:\users\cerw\desktop\cpp\try3\main.cpp
+1470217203 source:c:\users\cerw\desktop\cpp\try3\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	"imgLoader.h"
@@ -12,6 +12,7 @@
 	"pic.h"
 	<fstream>
 	"app.h"
+	<ctime>
 
 1444709878 c:\users\cerw\desktop\cpp\try3\include\glfw\glfw3.h
 	<stddef.h>
@@ -32,7 +33,7 @@
 	<GL/glext.h>
 	<GL/glu.h>
 
-1463794365 source:c:\users\cerw\desktop\cpp\try3\src\glslthingy.cpp
+1470216766 source:c:\users\cerw\desktop\cpp\try3\src\glslthingy.cpp
 	"GLSLthingy.h"
 
 1463799504 c:\users\cerw\desktop\cpp\try3\include\glslthingy.h
@@ -57,12 +58,12 @@
 	"vertex.h"
 	<cstddef>
 
-1468230206 c:\users\cerw\desktop\cpp\try3\include\vertex.h
+1470129656 c:\users\cerw\desktop\cpp\try3\include\vertex.h
 	<GL/glew.h>
 
 1463549828 source:c:\users\cerw\desktop\cpp\try3\src\vertex.cpp
 
-1468117729 source:c:\users\cerw\desktop\cpp\try3\src\iomanager.cpp
+1470124542 source:c:\users\cerw\desktop\cpp\try3\src\iomanager.cpp
 	"IOmanager.h"
 	<fstream>
 
@@ -86,7 +87,7 @@
 1463970263 c:\users\cerw\desktop\cpp\try3\include\texture.h
 	<GL/glew.h>
 
-1466755951 source:c:\users\cerw\desktop\cpp\try3\src\imgloader.cpp
+1470124419 source:c:\users\cerw\desktop\cpp\try3\src\imgloader.cpp
 	"imgLoader.h"
 	"picopng.h"
 	"IOmanager.h"
@@ -102,22 +103,26 @@
 	<vector>
 	<cstdlib>
 
-1467904931 source:c:\users\cerw\desktop\cpp\try3\include\picopng.cpp
+1470101637 source:c:\users\cerw\desktop\cpp\try3\include\picopng.cpp
 	<vector>
 	<cstdlib>
 
-1466286722 source:c:\users\cerw\desktop\cpp\try3\src\app.cpp
+1470217649 source:c:\users\cerw\desktop\cpp\try3\src\app.cpp
 	"app.h"
 
-1466286731 c:\users\cerw\desktop\cpp\try3\include\app.h
+1470217655 c:\users\cerw\desktop\cpp\try3\include\app.h
 	<map>
 	<vector>
 	<iostream>
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<memory>
+	<string>
+	"texture.h"
+	"GLSLthingy.h"
+	"imgLoader.h"
 
-1466569166 c:\users\cerw\desktop\cpp\try3\include\pic.h
+1470217257 c:\users\cerw\desktop\cpp\try3\include\pic.h
 	"sprite.h"
 	<string>
 	<GL/glew.h>
@@ -127,6 +132,6 @@
 	<cstddef>
 	"texture.h"
 
-1468230397 source:c:\users\cerw\desktop\cpp\try3\src\pic.cpp
+1470217269 source:c:\users\cerw\desktop\cpp\try3\src\pic.cpp
 	"pic.h"
 

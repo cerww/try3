@@ -7,10 +7,10 @@ struct Position{
 };
 
 struct Color{
-        GLubyte r;//=0;
-        GLubyte g;//=0;
-        GLubyte b;//=0;
-        GLubyte a;//=255;
+        GLubyte r=255;
+        GLubyte g=255;
+        GLubyte b=255;
+        GLubyte a=255;
         };
 struct UV{
 GLfloat u;
