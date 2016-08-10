@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1470217203 source:c:\users\cerw\desktop\cpp\try3\main.cpp
+1470791897 source:c:\users\cerw\desktop\cpp\try3\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	"imgLoader.h"
@@ -13,6 +13,12 @@
 	<fstream>
 	"app.h"
 	<ctime>
+	"manager.h"
+	<time.h>
+	<cstdlib>
+	<chrono>
+	<thread>
+	<cmath>
 
 1444709878 c:\users\cerw\desktop\cpp\try3\include\glfw\glfw3.h
 	<stddef.h>
@@ -107,10 +113,10 @@
 	<vector>
 	<cstdlib>
 
-1470217649 source:c:\users\cerw\desktop\cpp\try3\src\app.cpp
+1470697491 source:c:\users\cerw\desktop\cpp\try3\src\app.cpp
 	"app.h"
 
-1470217655 c:\users\cerw\desktop\cpp\try3\include\app.h
+1470695927 c:\users\cerw\desktop\cpp\try3\include\app.h
 	<map>
 	<vector>
 	<iostream>
@@ -121,8 +127,9 @@
 	"texture.h"
 	"GLSLthingy.h"
 	"imgLoader.h"
+	"pic.h"
 
-1470217257 c:\users\cerw\desktop\cpp\try3\include\pic.h
+1470784554 c:\users\cerw\desktop\cpp\try3\include\pic.h
 	"sprite.h"
 	<string>
 	<GL/glew.h>
@@ -131,7 +138,16 @@
 	"vertex.h"
 	<cstddef>
 	"texture.h"
+	<memory>
+	"manager.h"
 
-1470217269 source:c:\users\cerw\desktop\cpp\try3\src\pic.cpp
+1470777425 source:c:\users\cerw\desktop\cpp\try3\src\pic.cpp
 	"pic.h"
+
+1470643620 source:c:\users\cerw\desktop\cpp\try3\src\manager.cpp
+	"manager.h"
+	<GL/glew.h>
+
+1470642115 c:\users\cerw\desktop\cpp\try3\include\manager.h
+	<GL/glew.h>
 

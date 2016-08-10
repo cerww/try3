@@ -1,6 +1,6 @@
 #include "pic.h"
 
-pic::pic(const GLfloat &x,const GLfloat &y,const GLfloat &l,const GLfloat &h, texture *tex, GLSLthingy* shader):
+pic::pic(const GLfloat &x,const GLfloat &y,const GLfloat &l,const GLfloat &h, texture tex, std::shared_ptr<GLSLthingy> shader):
     x_coord(x),
     y_coord(y),
     length(l),
@@ -9,8 +9,22 @@ pic::pic(const GLfloat &x,const GLfloat &y,const GLfloat &l,const GLfloat &h, te
     _tex(tex),
     _shader(shader)
 {
-    //ctor
     init();
+}
+pic::pic(const GLint &x,const GLint &y,const GLint &l,const GLint &h, texture tex, std::shared_ptr<GLSLthingy>shader):
+x_coord((x*2.0f/manager::windowWidth)-1.0f),
+y_coord(-1.0f*((y*2.0f/manager::windowHeight)-1.0f)),
+length(2.0f*l/manager::windowWidth),
+height(-2.0f*h/manager::windowHeight),
+_shader(shader),
+color(0),
+_x(x),
+_y(y),
+_l(l),
+_h(h),
+_tex(tex){
+init();
+
 }
 /*
 void pic::shaderthinga(){
@@ -68,10 +82,6 @@ vertData[5].setUV(1.0f,1.0f);
 glBindBuffer(GL_ARRAY_BUFFER,_vboID);
 glBufferData(GL_ARRAY_BUFFER,sizeof(vertData),vertData,GL_DYNAMIC_DRAW);
 glBindBuffer(GL_ARRAY_BUFFER,0);
-std::cout<<(int)vertData[0].color.r<<std::endl;
-std::cout<<(int)vertData[0].color.g<<std::endl;
-std::cout<<(int)vertData[0].color.b<<std::endl;
-std::cout<<(int)vertData[0].color.a<<std::endl;
 }
 pic::~pic()
 {
@@ -82,7 +92,9 @@ void pic::draw(){
     _shader->use();
 
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D,_tex->id);
+    if(manager::currentTextId!=_tex.id)
+        glBindTexture(GL_TEXTURE_2D,_tex.id);
+    manager::currentTextId=_tex.id;
     GLint textlocate=_shader->getUniformLocate("Text");
     glUniform1i(textlocate,0);
 
@@ -95,7 +107,7 @@ void pic::draw(){
     glDisableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER,0);
 
-    glBindTexture(GL_TEXTURE_2D,0);
+    //glBindTexture(GL_TEXTURE_2D,0);
     _shader->unuse();
 }
 GLfloat pic::getx()const{

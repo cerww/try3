@@ -1,3 +1,4 @@
+#pragma once
 #ifndef APP_H
 #define APP_H
 #include <map>
@@ -10,6 +11,7 @@
 #include "texture.h"
 #include "GLSLthingy.h"
 #include "imgLoader.h"
+#include "pic.h"
 struct keys{
 std::map<std::string,int> k;
 std::map<std::string,int> m;
@@ -25,9 +27,12 @@ class app
         double getMouseX() const;
         double getMouseY() const;
         int getMouseButton(const std::string &Button);
-        texture* getTexture(const std::string&);
-        void addTexture(const std::string&,const std::string&);
-
+        texture getTexture(const std::string&);
+        //void addTexture(const std::string&,const std::string&);
+        std::shared_ptr<GLSLthingy> getShader(const std::string&);
+        void addShader(const std::string&,const std::string&,const std::string&,const std::vector<std::string>&);
+        void addSprite(const std::string&,const std::shared_ptr<pic>&);
+        bool removeSprite(const std::string&);
     protected:
 
     private:
@@ -36,7 +41,8 @@ class app
         double _ypos;
         double _xpos;
         std::map<std::string,texture> _textures;
-        std::map<std::string,GLSLthingy> _GLSLstuffs;
+        std::map<std::string,std::shared_ptr<GLSLthingy>> _GLSLstuffs;
+        std::vector<std::shared_ptr<pic>> _imgs;
 };
 
 #endif // APP_H

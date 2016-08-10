@@ -51,6 +51,7 @@
 		<Unit filename="include/IOmanager.h" />
 		<Unit filename="include/app.h" />
 		<Unit filename="include/imgLoader.h" />
+		<Unit filename="include/manager.h" />
 		<Unit filename="include/pic.h" />
 		<Unit filename="include/picopng.cpp" />
 		<Unit filename="include/picopng.h" />
@@ -62,6 +63,7 @@
 		<Unit filename="src/IOmanager.cpp" />
 		<Unit filename="src/app.cpp" />
 		<Unit filename="src/imgLoader.cpp" />
+		<Unit filename="src/manager.cpp" />
 		<Unit filename="src/pic.cpp" />
 		<Unit filename="src/sprite.cpp" />
 		<Unit filename="src/texture.cpp" />

@@ -13,6 +13,6 @@ gl_Position.z=0.0;
 gl_Position.w=1.0;
 fragposition=vertPosition;
 fragColor=vertColor;
-fragUV =vec2(vertUV.x,1-vertUV.y);
-//fragUV=vertUV;
+//fragUV =vec2(vertUV.x,1-vertUV.y);
+fragUV=vertUV;
 }

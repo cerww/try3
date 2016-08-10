@@ -51,6 +51,7 @@ app::app(GLFWwindow* &window):_window(window),_ypos(0.0f),_xpos(0.0f){
 int app::getKey(const std::string &key){
 return _keys.k[key];
 }
+//GLuint manager::currentTextId=0;
 int app::getMouseButton(const std::string &Button){
 return _keys.m[Button];
 }
@@ -107,13 +108,44 @@ if(glfwGetKey(_window,GLFW_KEY_ESCAPE)) ++_keys.k["esc"]; else _keys.k["esc"]=0;
 if(glfwGetKey(_window,GLFW_KEY_SPACE)) ++_keys.k["space"]; else _keys.k["space"]=0;
 if(glfwGetKey(_window,GLFW_KEY_RIGHT_SHIFT)) ++_keys.k["Rshift"]; else _keys.k["Rshift"]=0;
 if(glfwGetKey(_window,GLFW_KEY_LEFT_SHIFT)) ++_keys.k["Lshift"]; else _keys.k["Lshift"]=0;
+for(auto &x:_imgs){
+    x->draw();
 }
-texture* app::getTexture(const std::string &textname){
-return &_textures[textname];
 }
+texture app::getTexture(const std::string &textname){
+    auto it= _textures.find(textname);
+    if(it==_textures.end()){
+        _textures[textname]=imgLoader::loadPNG(textname);
+    }
+    return _textures[textname];
+}
+/*
 void app::addTexture(const std::string &name,const std::string&path){
+    auto it= _textures.find(name);
+    if(it!=_textures.end()){
+        return;
+    }
 _textures[name]=imgLoader::loadPNG(path);
+}*/
+std::shared_ptr<GLSLthingy> app::getShader(const std::string& name){
+return _GLSLstuffs[name];
+}
+void app::addShader(const std::string& shaderName,const std::string& vertexFile,const std::string& fragFile,const std::vector<std::string>& attributes){
+_GLSLstuffs[shaderName]=std::make_shared<GLSLthingy>();
+_GLSLstuffs[shaderName]->compileshad(vertexFile,fragFile);
+for(auto x:attributes)
+    _GLSLstuffs[shaderName]->addAttribute(x);
+_GLSLstuffs[shaderName]->linkshader();
+}
+void app::addSprite(const std::string&name,const std::shared_ptr<pic>&pic){
+_imgs.push_back(pic);
+}
+bool app::removeSprite(const std::string&name){
+
+return true;
 }
 app::~app()
 {
+
 }
+

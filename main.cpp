@@ -14,6 +14,12 @@
 #include <fstream>
 #include "app.h"
 #include <ctime>
+#include "manager.h"
+#include <time.h>
+#include <cstdlib>
+#include <chrono>
+#include <thread>
+#include <cmath>
 GLfloat tocoords(const int &pixels){
 return (2.0*pixels/640.0)-1.0;
 }
@@ -29,7 +35,25 @@ void dothings(const std::unique_ptr<int> &l){
 int rgbColour(const char &r,const char &g,const char &b){
 return (r<<24)+(g<<16)+(b<<8)+255;
 }
+void sleepy(const int&sleeptime){
+    time_t timer1=time(nullptr);
+    time_t timer2=time(nullptr);
+    while(difftime(timer1,timer2)>sleeptime){
+        timer2 = time(nullptr);
+    }
+}
+std::string tostring(const int&num){
+    std::string returnStr="";
+    for(int place = ceil(log10(num+1))-1;place>-1;--place){
+        returnStr.push_back(((int)(num/pow(10.0,place))%10)+48);
+    }return returnStr;
+}
 int main(int argc,char ** argv){
+
+    //sleepy(10);
+    //usleep(1232189732121898921);
+    //Sleep(1000);
+    //std::this_thread::sleep_for(std::chrono::milliseconds(10000));
     /* Initialize the library */
     if (!glfwInit())
         return -1;
@@ -67,62 +91,51 @@ int main(int argc,char ** argv){
     //glfwWindowHint();*/
     /* Loop until the user closes the window */
     //sprite sp(-0.5,0.5,0.5,-0.5,(50<<24)+(255<<16)+(40<<8)+255);
-
+    int width, height;
     double xpos, ypos;
+    glfwGetFramebufferSize(window, &width, &height);
+    manager::windowHeight=height;
+    manager::windowWidth=width;
     //glfwSwapInterval(1);
     texture t;
     app a(window);
     t = imgLoader::loadPNG("Enemy_Broccoli1.png");
-    GLSLthingy picthingy;
-    picthingy.compileshad("texture.vert","texture.frag");
-    picthingy.addAttribute("vertPosition");
-    picthingy.addAttribute("vertColor");
-    picthingy.addAttribute("vertUV");
-    picthingy.linkshader();
-    pic aPic(0,0.0,0.7,0.8,&t,&picthingy);
+    //glfwSwapInterval(1);
+    //a.addTexture("broccoli1","Enemy_Broccoli1.png");
+    a.addShader("pics","texture.vert","texture.frag",{"vertPosition","vertColor","vertUV"});
+    //pic aPic(0,0.0,0.7,0.8,a.getTexture("broccoli1"),a.getShader("pics"));
+    //auto somepic = std::shared_ptr<pic>(new pic(0.0f,0.0f,0.3f,-0.3f,a.getTexture("Enemy_Broccoli1.png"),a.getShader("pics")));
+    //a.addSprite(somepic);
+    for(int x=0;x<10;++x){
+        a.addSprite("things"+tostring(x),std::shared_ptr<pic>(new pic(0.1f*x,0.1f*x,0.3f,-0.3f,a.getTexture("Enemy_broccoli1.png"),a.getShader("pics"))));
+    }
+
+    std::cout<<glfwGetTime()<<std::endl;
+    auto abb = std::shared_ptr<pic>(new pic(0,0,200,400,a.getTexture("Enemy_broccoli1.png"),a.getShader("pics")));
+    a.addSprite("guy",abb);
     //sprite sp(0.5,0.5,0.5,-0.5,(50<<24)+(255<<16)+(40<<8)+255);
     //sprite sp2(-0.5,0.5,0.5,-0.5,(50<<24)+(255<<16)+(40<<8)+255);
+    double currentFrame=0;
+    double prevFrame = glfwGetTime();
     while (!glfwWindowShouldClose(window)){
-
-        //glClearColor(0.0,0.0,1.0,1.0);
-        /* Render here *//*
-
-        glEnableClientState(GL_VERTEX_ARRAY);
-        glVertexPointer(3,GL_FLOAT,0,vert);
-        glDrawArrays(GL_QUADS,0,4);
-        glDisableClientState(GL_VERTEX_ARRAY);
-        /* Swap front and back buffers */
         glfwSwapBuffers(window);
-        int width, height;
         glfwGetFramebufferSize(window, &width, &height);
+        manager::windowHeight=height;
+        manager::windowWidth=width;
         glViewport(0, 0, width, height);
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
         glClearColor(1.0,1.0,1.0,1.0);
         /* Poll for and process events */
         glfwPollEvents();
         a.update();
+        currentFrame=glfwGetTime();
+        if(currentFrame-prevFrame<1.0/manager::maxFps){
+            std::this_thread::sleep_for(std::chrono::microseconds((int)(1000000.0*((1.0/manager::maxFps)-(currentFrame-prevFrame)))));
+        }prevFrame=currentFrame;
+        //std::cout<<prevFrame*1000.0f<<std::endl;
         glfwGetCursorPos(window, &xpos, &ypos);
-        //glfwSetCursorPos(window,400,400);
-        //colour.use();
-        //sp.draw();
-
-        aPic.draw();
-        //colour.unuse();
-        //glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-        //std::cout<<a.getMouseButton("left")<<std::endl;
-        if(a.getMouseButton("left")%200==199) std::cout<<(a.getMouseX()*2.0/640.0)-1<<std::endl;
+        if(a.getMouseButton("left")%60==59) std::cout<<(a.getMouseX()*2.0/640.0)-1<<std::endl;
         if(a.getMouseButton("right")) std::cout<<-1*(a.getMouseY()*2.0/640.0)+1<<std::endl;
-        //if(glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT)==GLFW_PRESS//){
-        //   &&PointinBox(xpos,ypos,topixels(sp.getx()),topixels(-1.0*sp.gety()),topixels(sp.getlength()-1),topixels(-1.0*(sp.getheight()+1)))){
-        //if(PointinBox(50,50,0,0,600,600)){
-            //std::cout<<"abc"<<std::endl;
-            //std::cout<<xpos<<":"<<ypos<<std::endl;
-            //std::cout<<sp.getheight()<<std::endl;
-            //std::cout<<topixels(sp.getx())<<":"<<topixels(-1.0*sp.gety())<<":"<<topixels(-1.0*(sp.getheight()+1.0))<<":"<<topixels(sp.getlength()-1.0)<<std::endl;
-
-        //std::cout<<xpos<<" "<<ypos<<std::endl;
-        //std::cout<<test<<std::endl;
-        //std::sleep(.001);
     }
     glfwTerminate();
     //delete window;
