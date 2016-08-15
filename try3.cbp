@@ -50,6 +50,7 @@
 		<Unit filename="include/GLSLthingy.h" />
 		<Unit filename="include/IOmanager.h" />
 		<Unit filename="include/app.h" />
+		<Unit filename="include/camera2D.h" />
 		<Unit filename="include/imgLoader.h" />
 		<Unit filename="include/manager.h" />
 		<Unit filename="include/pic.h" />
@@ -62,6 +63,7 @@
 		<Unit filename="src/GLSLthingy.cpp" />
 		<Unit filename="src/IOmanager.cpp" />
 		<Unit filename="src/app.cpp" />
+		<Unit filename="src/camera2D.cpp" />
 		<Unit filename="src/imgLoader.cpp" />
 		<Unit filename="src/manager.cpp" />
 		<Unit filename="src/pic.cpp" />

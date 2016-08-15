@@ -12,6 +12,7 @@
 #include "GLSLthingy.h"
 #include "imgLoader.h"
 #include "pic.h"
+#include "SpriteBatch.h"
 struct keys{
 std::map<std::string,int> k;
 std::map<std::string,int> m;
@@ -43,6 +44,7 @@ class app
         std::map<std::string,texture> _textures;
         std::map<std::string,std::shared_ptr<GLSLthingy>> _GLSLstuffs;
         std::vector<std::shared_ptr<pic>> _imgs;
+        SpriteBatch _spriteBatch;
 };
 
 #endif // APP_H

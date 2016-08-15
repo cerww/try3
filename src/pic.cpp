@@ -89,17 +89,13 @@ pic::~pic()
 }
 void pic::draw(){
 
-    _shader->use();
+    //_shader->use();
 
-    glActiveTexture(GL_TEXTURE0);
-    if(manager::currentTextId!=_tex.id)
-        glBindTexture(GL_TEXTURE_2D,_tex.id);
-    manager::currentTextId=_tex.id;
-    GLint textlocate=_shader->getUniformLocate("Text");
-    glUniform1i(textlocate,0);
 
     glBindBuffer(GL_ARRAY_BUFFER,_vboID);
     glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(2);
     glVertexAttribPointer(0,2,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,pos));
     glVertexAttribPointer(1,4,GL_UNSIGNED_BYTE,GL_TRUE,sizeof(Vertex),(void*)offsetof(Vertex,color));
     glVertexAttribPointer(2,2,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,uv));
@@ -108,7 +104,7 @@ void pic::draw(){
     glBindBuffer(GL_ARRAY_BUFFER,0);
 
     //glBindTexture(GL_TEXTURE_2D,0);
-    _shader->unuse();
+    //_shader->unuse();
 }
 GLfloat pic::getx()const{
 return x_coord;
@@ -135,4 +131,10 @@ init();
 void pic::movey(const GLfloat &m){
 y_coord+=m;
 init();
+}
+texture pic::getTexture(){
+return _tex;
+}
+GLSLthingy* pic::getShader(){
+return _shader.get();
 }

@@ -35,6 +35,8 @@ class pic
         void movex(const GLint &m);
         void movey(const GLint &m);
         void movey(const GLfloat &m);
+        texture getTexture();
+        GLSLthingy* getShader();
     protected:
 
     private:
