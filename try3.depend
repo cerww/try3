@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1471143305 source:c:\users\cerw\desktop\cpp\try3\main.cpp
+1471428962 source:c:\users\cerw\desktop\cpp\try3\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	"imgLoader.h"
@@ -21,6 +21,7 @@
 	<cmath>
 	<glm/glm.hpp>
 	"camera2D.h"
+	"SpriteBatch.h"
 
 1444709878 c:\users\cerw\desktop\cpp\try3\include\glfw\glfw3.h
 	<stddef.h>
@@ -66,7 +67,7 @@
 	"vertex.h"
 	<cstddef>
 
-1470129656 c:\users\cerw\desktop\cpp\try3\include\vertex.h
+1471304177 c:\users\cerw\desktop\cpp\try3\include\vertex.h
 	<GL/glew.h>
 
 1463549828 source:c:\users\cerw\desktop\cpp\try3\src\vertex.cpp
@@ -115,11 +116,12 @@
 	<vector>
 	<cstdlib>
 
-1471143706 source:c:\users\cerw\desktop\cpp\try3\src\app.cpp
+1471428855 source:c:\users\cerw\desktop\cpp\try3\src\app.cpp
 	"app.h"
 
-1470695927 c:\users\cerw\desktop\cpp\try3\include\app.h
+1471474546 c:\users\cerw\desktop\cpp\try3\include\app.h
 	<map>
+	<unordered_map>
 	<vector>
 	<iostream>
 	<GL/glew.h>
@@ -130,8 +132,14 @@
 	"GLSLthingy.h"
 	"imgLoader.h"
 	"pic.h"
+	"SpriteBatch.h"
+	"manager.h"
+	"camera2D.h"
+	"fpslimiter.h"
+	<thread>
+	<future>
 
-1471143522 c:\users\cerw\desktop\cpp\try3\include\pic.h
+1471314775 c:\users\cerw\desktop\cpp\try3\include\pic.h
 	"sprite.h"
 	<string>
 	<GL/glew.h>
@@ -143,10 +151,10 @@
 	<memory>
 	"manager.h"
 
-1471143726 source:c:\users\cerw\desktop\cpp\try3\src\pic.cpp
+1471314768 source:c:\users\cerw\desktop\cpp\try3\src\pic.cpp
 	"pic.h"
 
-1470985228 source:c:\users\cerw\desktop\cpp\try3\src\manager.cpp
+1471314638 source:c:\users\cerw\desktop\cpp\try3\src\manager.cpp
 	"manager.h"
 	<GL/glew.h>
 
@@ -546,7 +554,7 @@
 	<intrin.h>
 	<limits>
 
-1470988484 c:\users\cerw\desktop\cpp\try3\include\camera2d.h
+1471428377 c:\users\cerw\desktop\cpp\try3\include\camera2d.h
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
@@ -570,13 +578,13 @@
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1471047096 source:c:\users\cerw\desktop\cpp\try3\src\camera2d.cpp
+1471429559 source:c:\users\cerw\desktop\cpp\try3\src\camera2d.cpp
 	"camera2D.h"
 
-1471209746 source:c:\users\cerw\desktop\cpp\try3\src\spritebatch.cpp
+1471428871 source:c:\users\cerw\desktop\cpp\try3\src\spritebatch.cpp
 	"SpriteBatch.h"
 
-1471209734 c:\users\cerw\desktop\cpp\try3\include\spritebatch.h
+1471423385 c:\users\cerw\desktop\cpp\try3\include\spritebatch.h
 	"vertex.h"
 	<glm/glm.hpp>
 	<GL/glew.h>
@@ -585,4 +593,30 @@
 	<memory>
 	<cstdlib>
 	<algorithm>
+
+1471310932 source:c:\users\cerw\desktop\cpp\try3\src\keyboardstuff.cpp
+	"keyboardStuff.h"
+
+1471310932 c:\users\cerw\desktop\cpp\try3\include\keyboardstuff.h
+
+1471314286 source:c:\users\cerw\desktop\cpp\try3\src\timeing.cpp
+	"timeing.h"
+
+1471314254 c:\users\cerw\desktop\cpp\try3\include\timeing.h
+
+1471314293 source:c:\users\cerw\desktop\cpp\try3\src\timeings.h.cpp
+	"Timeings.h.h"
+
+1471314290 c:\users\cerw\desktop\cpp\try3\include\timeings.h.h
+
+1471422473 c:\users\cerw\desktop\cpp\try3\include\fpslimiter.h
+	<GL/glew.h>
+	<GLFW/glfw3.h>
+	<cstdlib>
+	<chrono>
+	<thread>
+	<iostream>
+
+1471423130 source:c:\users\cerw\desktop\cpp\try3\src\fpslimiter.cpp
+	"fpslimiter.h"
 

@@ -17,6 +17,7 @@ class camera2D
         glm::vec2 getPos(){return _pos;}
         float getScale(){return _scale;}
         glm::mat4 getCamMatrix(){return _camMatrix;}
+        glm::vec2 screenToWorld(glm::vec2 screenCoords);
     protected:
 
     private:

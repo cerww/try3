@@ -14,7 +14,7 @@ class pic
 {
     public:
         pic(const GLfloat &x,const GLfloat &y,const GLfloat &l,const GLfloat &h, texture , std::shared_ptr<GLSLthingy>);
-        pic(const GLint &x,const GLint &y,const GLint &l,const GLint &h, texture , std::shared_ptr<GLSLthingy>);
+        //pic(const GLint &x,const GLint &y,const GLint &l,const GLint &h, texture , std::shared_ptr<GLSLthingy>);
         virtual ~pic();
         virtual void init();
         virtual void draw();

@@ -1,3 +1,4 @@
+#pragma once
 #ifndef VERTEX_H
 #define VERTEX_H
 #include <GL/glew.h>
@@ -7,11 +8,14 @@ struct Position{
 };
 
 struct Color{
+        Color(int aa,int bb,int c,int d=255):r(aa),g(bb),b(c),a(d){};
+        Color(){};
         GLubyte r=255;
         GLubyte g=255;
         GLubyte b=255;
         GLubyte a=255;
-        };
+};
+
 struct UV{
 GLfloat u;
 GLfloat v;
@@ -36,5 +40,13 @@ struct Vertex{
     }
 
 };
-
+/*
+Color RGBcolorabc(int r,int g,int b,int a=255){
+Color re;
+re.r = r;
+re.g = g;
+re.b = b;
+re.a = a;
+return re;
+}*/
 #endif // VERTEX_H

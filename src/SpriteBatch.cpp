@@ -22,7 +22,7 @@ sortGlyph();
 createRenderBatches();
 }
 
-void SpriteBatch::draw(const glm::vec4& dimensions,const glm::vec4& uv,GLuint& text,Color colour,const float& depth){
+void SpriteBatch::draw(glm::vec4 dimensions,glm::vec4 uv,GLuint text,Color colour,const float& depth){
     auto newGlyph=std::make_shared<Glyph>();
     //auto newGlyph = new Glyph;
     newGlyph->text=text;
@@ -46,16 +46,18 @@ void SpriteBatch::draw(const glm::vec4& dimensions,const glm::vec4& uv,GLuint& t
     newGlyph->botRight.color=colour;
     newGlyph->botRight.pos.x = dimensions.x+dimensions.z;
     newGlyph->botRight.pos.y = dimensions.y;
+    newGlyph->botRight.setUV(uv.x+uv.z,uv.y);
     _glyphs.push_back(newGlyph);
 }
 void SpriteBatch::renderBatch(){
     /*for(auto i:_renderBatchs){
         glBindTexture(GL_TEXTURE_2D,_renderBatchs[i]->text);
     }*/
+    glBindVertexArray(_vao);
     for(int i = 0;i<_renderBatchs.size();++i){
         glBindTexture(GL_TEXTURE_2D,_renderBatchs[i].text);
         glDrawArrays(GL_TRIANGLES,_renderBatchs[i].offset,_renderBatchs[i].numVerts);
-    }
+    }glBindVertexArray(0);
 }
 
 void SpriteBatch::createRenderBatches(){

@@ -1,8 +1,5 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-//#include <GL/glx.h>
-//#include <GL/gl.h>
-//#include <GL/glu.h>
 #include "imgLoader.h"
 #include <iostream>
 #include <string>
@@ -23,33 +20,10 @@
 #include <glm/glm.hpp>
 #include "camera2D.h"
 #include "SpriteBatch.h"
-bool PointinBox(const int &x,const int& y,const int& p1,const int& p2,const int& l,const int& h){
-return x>p1&&x<p1+l&&y>p2&&y<p2+h;
-}
-void dothings(const std::unique_ptr<int> &l){
-*l+=1;
-}
-int rgbColour(const char &r,const char &g,const char &b){
-return (r<<24)+(g<<16)+(b<<8)+255;
-}
-void sleepy(const int&sleeptime){
-    time_t timer1=time(nullptr);
-    time_t timer2=time(nullptr);
-    while(difftime(timer1,timer2)>sleeptime){
-        timer2 = time(nullptr);
-    }
-}
-std::string tostring(const int&num){
-    std::string returnStr="";
-    for(int place = ceil(log10(num+1))-1;place>-1;--place){
-        returnStr.push_back(((int)(num/pow(10.0,place))%10)+48);
-    }return returnStr;
-}
 int main(int argc,char ** argv){
     /* Initialize the library */
     if (!glfwInit())
         return -1;
-
     GLFWwindow* window;
     /* Create a windowed mode window and its OpenGL context */
     window = glfwCreateWindow(640, 640, "Hello World", NULL, NULL);
@@ -71,75 +45,21 @@ int main(int argc,char ** argv){
         std::cout<<"a"<<std::endl;
         return -1;
     }
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-    //GLFWwindow* window2;
-    //window2= glfwCreateWindow(400,400,"abc",NULL,NULL);
-    /*GLuint VBO =0;
-    glGenBuffers(1,&VBO);
-    glBindBuffer(GL_ARRAY_BUFFER,VBO);
-    glBufferData(GL_ARRAY_BUFFER,sizeof(vert),vert,GL_DYNAMIC_DRAW);
-    glBindBuffer(GL_ARRAY_BUFFER,0);
-    //glfwWindowHint();*/
-    /* Loop until the user closes the window */
-    //sprite sp(-0.5,0.5,0.5,-0.5,(50<<24)+(255<<16)+(40<<8)+255);
     int width, height;
-    double xpos, ypos;
     glfwGetFramebufferSize(window, &width, &height);
-    manager::windowHeight=height;
-    manager::windowWidth=width;
-    manager::currentCamera = camera2D();
-    manager::currentCamera.init(width,height);
     //glfwSwapInterval(1);
-    texture t;
     app a(window);
-    t = imgLoader::loadPNG("Enemy_Broccoli1.png");
-    //glfwSwapInterval(1);
-    //a.addTexture("broccoli1","Enemy_Broccoli1.png");
     a.addShader("pics","texture.vert","texture.frag",{"vertPosition","vertColor","vertUV"});
-    //pic aPic(0,0.0,0.7,0.8,a.getTexture("broccoli1"),a.getShader("pics"));
-    auto somepic = std::shared_ptr<pic>(new pic(200.0f,-200.0f,300.0f,300.3f,a.getTexture("Enemy_Broccoli1.png"),a.getShader("pics")));
-    a.addSprite("a pic",somepic);
-    for(int x=0;x<10;++x){
-        //a.addSprite("things"+tostring(x),std::shared_ptr<pic>(new pic(0.0f,0.0f,manager::windowWidth/2,manager::windowWidth/2,a.getTexture("Enemy_broccoli1.png"),a.getShader("pics"))));
-    }
-    //auto abb = std::shared_ptr<pic>(new pic(0,0,300,300,a.getTexture("Enemy_broccoli1.png"),a.getShader("pics")));
-    auto aaab = std::shared_ptr<pic>(new pic(0.0f,0.0f,300.0f,300.0f,a.getTexture("Enemy_broccoli1.png"),a.getShader("pics")));
-    //a.addSprite("guy",aaab);
-    //sprite sp(0.5,0.5,0.5,-0.5,(50<<24)+(255<<16)+(40<<8)+255);
-    //sprite sp2(-0.5,0.5,0.5,-0.5,(50<<24)+(255<<16)+(40<<8)+255);
-    double currentFrame=0;
-    double prevFrame = glfwGetTime();
     while (!glfwWindowShouldClose(window)){
-        manager::currentCamera.update();
-        glfwSwapBuffers(window);
-        glfwGetFramebufferSize(window, &width, &height);
-        manager::windowHeight=height;
-        manager::windowWidth=width;
-        glViewport(0, 0, width, height);
-        glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
-        glClearColor(1.0,1.0,1.0,1.0);
-        /* Poll for and process events */
-        glfwPollEvents();
         a.update();
-        //shader thingys
-
-        //FPS THINGY
-        currentFrame=glfwGetTime();
-        if(currentFrame-prevFrame<1.0/manager::maxFps){
-            std::this_thread::sleep_for(std::chrono::microseconds((int)(1000000.0*((1.0/manager::maxFps)-(currentFrame-prevFrame)))));
-        }prevFrame=currentFrame;
-        //std::cout<<prevFrame*1000.0f<<std::endl;
-        //glfwGetCursorPos(window, &xpos, &ypos);
-        if(a.getKey("up")) manager::currentCamera.setPos(manager::currentCamera.getPos()+glm::vec2(0.0f,10.0f));
-        if(a.getKey("down")) manager::currentCamera.setPos(manager::currentCamera.getPos()+glm::vec2(0.0f,-10.0f));
-        if(a.getKey("right")) manager::currentCamera.setPos(manager::currentCamera.getPos()+glm::vec2(10.0f,0.0f));
-        if(a.getKey("left")) manager::currentCamera.setPos(manager::currentCamera.getPos()+glm::vec2(-10.0f,0.0f));
-        if(a.getMouseButton("left")%60==59) std::cout<<(a.getMouseX()*2.0/640.0)-1<<std::endl;
+        if(a.getKey("up")) a.camera.setPos(a.camera.getPos()+glm::vec2(0.0f,10.0f));
+        if(a.getKey("down")) a.camera.setPos(a.camera.getPos()+glm::vec2(0.0f,-10.0f));
+        if(a.getKey("right")) a.camera.setPos(a.camera.getPos()+glm::vec2(10.0f,0.0f));
+        if(a.getKey("left")) a.camera.setPos(a.camera.getPos()+glm::vec2(-10.0f,0.0f));
+        if(a.getMouseButton("left")%60==1) std::cout<<(a.getMouseX()*2.0/640.0)-1<<std::endl;
         if(a.getMouseButton("right")) std::cout<<-1*(a.getMouseY()*2.0/640.0)+1<<std::endl;
     }
     glfwTerminate();
-    //delete window;
     return 0;
 }
 

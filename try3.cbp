@@ -49,26 +49,36 @@
 		</Linker>
 		<Unit filename="include/GLSLthingy.h" />
 		<Unit filename="include/IOmanager.h" />
+		<Unit filename="include/SpriteBatch.h" />
+		<Unit filename="include/Timeings.h.h" />
 		<Unit filename="include/app.h" />
 		<Unit filename="include/camera2D.h" />
 		<Unit filename="include/imgLoader.h" />
+		<Unit filename="include/keyboardStuff.h" />
 		<Unit filename="include/manager.h" />
 		<Unit filename="include/pic.h" />
 		<Unit filename="include/picopng.cpp" />
 		<Unit filename="include/picopng.h" />
+		<Unit filename="include/projectile.h" />
 		<Unit filename="include/sprite.h" />
 		<Unit filename="include/texture.h" />
+		<Unit filename="include/timeing.h" />
 		<Unit filename="include/vertex.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/GLSLthingy.cpp" />
 		<Unit filename="src/IOmanager.cpp" />
+		<Unit filename="src/SpriteBatch.cpp" />
+		<Unit filename="src/Timeings.h.cpp" />
 		<Unit filename="src/app.cpp" />
 		<Unit filename="src/camera2D.cpp" />
 		<Unit filename="src/imgLoader.cpp" />
+		<Unit filename="src/keyboardStuff.cpp" />
 		<Unit filename="src/manager.cpp" />
 		<Unit filename="src/pic.cpp" />
+		<Unit filename="src/projectile.cpp" />
 		<Unit filename="src/sprite.cpp" />
 		<Unit filename="src/texture.cpp" />
+		<Unit filename="src/timeing.cpp" />
 		<Unit filename="src/vertex.cpp" />
 		<Extensions>
 			<code_completion />

@@ -33,7 +33,7 @@ class SpriteBatch
         void init();
         void begin(glyphSortType s=glyphSortType::TEXT);
         void end();
-        void draw(const glm::vec4& dimensions,const glm::vec4& uv,GLuint& text,Color colour,const float& depth);
+        void draw(glm::vec4 dimensions,glm::vec4 uv,GLuint text,Color colour,const float& depth);
         void renderBatch();
 
     protected:
@@ -41,11 +41,6 @@ class SpriteBatch
     private:
         void createRenderBatches();
         void createVertArray();
-        /*
-        static bool compareFrontToBack(const Glyph*a,const Glyph*b);
-        static bool compareBackToFront(const Glyph*a,const Glyph*b);
-        static bool compareTexture(const Glyph*a,const Glyph*b);
-        */
         static bool compareFrontToBack(const std::shared_ptr<Glyph>a,const std::shared_ptr<Glyph>b);
         static bool compareBackToFront(const std::shared_ptr<Glyph>a,const std::shared_ptr<Glyph>b);
         static bool compareTexture(const std::shared_ptr<Glyph>a,const std::shared_ptr<Glyph>b);

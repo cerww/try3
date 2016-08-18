@@ -11,6 +11,7 @@ pic::pic(const GLfloat &x,const GLfloat &y,const GLfloat &l,const GLfloat &h, te
 {
     init();
 }
+/*
 pic::pic(const GLint &x,const GLint &y,const GLint &l,const GLint &h, texture tex, std::shared_ptr<GLSLthingy>shader):
 x_coord((x*2.0f/manager::windowWidth)-1.0f),
 y_coord(-1.0f*((y*2.0f/manager::windowHeight)-1.0f)),
@@ -25,7 +26,7 @@ _h(h),
 _tex(tex){
 init();
 
-}
+}*/
 /*
 void pic::shaderthinga(){
 shader.compileshad("texture.vert","texture.frag");
