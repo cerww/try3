@@ -19,6 +19,7 @@
 #include "fpslimiter.h"
 #include <thread>
 #include <future>
+#include <glm/glm.hpp>
 struct keys{
 std::unordered_map<std::string,int> k;
 std::unordered_map<std::string,int> m;
@@ -31,8 +32,7 @@ class app
         virtual ~app();
         void update();
         int getKey(const std::string &key);
-        double getMouseX() const;
-        double getMouseY() const;
+        glm::vec2 getMousePos();
         int getMouseButton(const std::string &Button);
         texture getTexture(const std::string&);
         //void addTexture(const std::string&,const std::string&);
@@ -42,6 +42,10 @@ class app
         bool removeSprite(const std::string&);
         void setMaxFPS(const int&);
         camera2D camera;
+        void start();
+        void end();
+        void draw(glm::vec4 dimensions,glm::vec4 uv,GLuint text,Color colour,const float& depth);
+        void updateKeys();
     protected:
 
     private:
@@ -50,15 +54,17 @@ class app
         keys _keys;
         double _ypos;
         double _xpos;
+        SpriteBatch _spriteBatch;
+        //std::vector<Glyph> m_drawBatchs;
+        glm::vec2 m_mousePos;
         std::map<std::string,texture> _textures;
         std::map<std::string,std::shared_ptr<GLSLthingy>> _GLSLstuffs;
         std::vector<std::shared_ptr<pic>> _imgs;
-        SpriteBatch _spriteBatch;
         int _maxFPS;
         //double currentFrame=0;
         //double _prevFrame = glfwGetTime();
         fpslimiter _fpsLimiter;
-        void updateKeys();
+
 };
 
 #endif // APP_H

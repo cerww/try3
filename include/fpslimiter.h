@@ -14,6 +14,7 @@ class fpslimiter
         void setMaxFPS(const int&newfps){_maxFPS=newfps;};
         double getMaxFPS(){return _maxFPS;};
         void limitFPS();
+
     protected:
 
     private:

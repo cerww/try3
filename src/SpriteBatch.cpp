@@ -80,12 +80,12 @@ void SpriteBatch::createRenderBatches(){
         }else{
             _renderBatchs.back().numVerts+=6;
         }
-        vertices[cv++]=_glyphs[0]->topLeft;
-        vertices[cv++]=_glyphs[0]->botLeft;
-        vertices[cv++]=_glyphs[0]->botRight;
-        vertices[cv++]=_glyphs[0]->botRight;
-        vertices[cv++]=_glyphs[0]->topRight;
-        vertices[cv++]=_glyphs[0]->topLeft;
+        vertices[cv++]=_glyphs[cg]->topLeft;
+        vertices[cv++]=_glyphs[cg]->botLeft;
+        vertices[cv++]=_glyphs[cg]->botRight;
+        vertices[cv++]=_glyphs[cg]->botRight;
+        vertices[cv++]=_glyphs[cg]->topRight;
+        vertices[cv++]=_glyphs[cg]->topLeft;
     }
     glBindBuffer(GL_ARRAY_BUFFER,_vbo);
     glBufferData(GL_ARRAY_BUFFER,vertices.size()*sizeof(Vertex),nullptr,GL_DYNAMIC_DRAW);
@@ -104,6 +104,7 @@ void SpriteBatch::createVertArray(){
     glVertexAttribPointer(0,2,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,pos));
     glVertexAttribPointer(1,4,GL_UNSIGNED_BYTE,GL_TRUE,sizeof(Vertex),(void*)offsetof(Vertex,color));
     glVertexAttribPointer(2,2,GL_FLOAT,GL_FALSE,sizeof(Vertex),(void*)offsetof(Vertex,uv));
+    glBindVertexArray(0);
 }
 /*
 void SpriteBatch::sortGlyph() {

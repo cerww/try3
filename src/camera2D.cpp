@@ -30,6 +30,7 @@ void camera2D::update(){
     }
 }
 glm::vec2 camera2D::screenToWorld(glm::vec2 screen){
+screen.y=_screenHeight-screen.y;
 screen-=glm::vec2(_screenWidth/2,_screenHeight/2);
 screen /=_scale;
 screen+=_pos;
