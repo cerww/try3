@@ -11,13 +11,19 @@
 enum class glyphSortType{
 NONE,FRONT_TO_BACK,BACK_TO_FRONT,TEXT
 };
-struct Glyph{
+class Glyph{
+public:
+    Glyph(){};
+    Glyph(const glm::vec4& dimensions,const glm::vec4& uv,GLuint text,Color colour,const float& depth);
+    Glyph(const glm::vec4& dimensions,const glm::vec4& uv,GLuint text,Color colour,const float& depth,const float&angle);
     GLuint text;
     float depth;
     Vertex topLeft;
     Vertex botLeft;
     Vertex botRight;
     Vertex topRight;
+private:
+    glm::vec2 rotate(glm::vec2 dir,float angle);
 };
 struct renderBatchs{
     renderBatchs(GLuint Offset,GLuint NumVerts,GLuint Text):offset(Offset),numVerts(NumVerts),text(Text){};
@@ -33,6 +39,8 @@ class SpriteBatch
         void init();
         void begin(glyphSortType s=glyphSortType::TEXT);
         void end();
+        void draw(glm::vec4 dimensions,glm::vec4 uv,GLuint text,Color colour,const float& depth,float angle);
+        void draw(glm::vec4 dimensions,glm::vec4 uv,GLuint text,Color colour,const float& depth,glm::vec2 dir);
         void draw(glm::vec4 dimensions,glm::vec4 uv,GLuint text,Color colour,const float& depth);
         void renderBatch();
 
@@ -41,6 +49,7 @@ class SpriteBatch
     private:
         void createRenderBatches();
         void createVertArray();
+
         static bool compareFrontToBack(const std::shared_ptr<Glyph>a,const std::shared_ptr<Glyph>b);
         static bool compareBackToFront(const std::shared_ptr<Glyph>a,const std::shared_ptr<Glyph>b);
         static bool compareTexture(const std::shared_ptr<Glyph>a,const std::shared_ptr<Glyph>b);
@@ -49,7 +58,8 @@ class SpriteBatch
         GLuint _vao;
         glyphSortType _sortType;
         //std::vector<Glyph*> _glyphs;
-        std::vector<std::shared_ptr<Glyph> > _glyphs;
+        std::vector<Glyph*> _glyphPtrs;
+        std::vector<Glyph> _glyphs;
         std::vector<renderBatchs> _renderBatchs;
 };
 
