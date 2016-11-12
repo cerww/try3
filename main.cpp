@@ -191,7 +191,16 @@ template<class t,int n  >
 struct abc{
 
 };
-
+template<class T>
+void removeFirstFromVecFast(std::vector<T>& v,const T& C){
+    for(int x = 0;x<v.size();++x){
+        if(v[x]==C){
+            std::swap(v[x],v.back());
+            v.pop_back();
+            return;
+        }
+    }
+}
 struct bca{
 
     bca(const int a):abcs(a){
@@ -218,7 +227,7 @@ struct node{
 };
 template<class T>
 int findFirstInVector(const std::vector<T>& vec,T item){
-    for(int x = 0;x<vec;++x){
+    for(int x = 0;x<vec.size();++x){
         if(vec[x]==item)return x;
     }return -1;
 }
@@ -319,7 +328,299 @@ void s4_2015v2(){
     }//std::cout<<std::endl;
 }
 void breadthFirstSearch(const std::shared_ptr<node>& tree){
-    //void a(){}
+
+}
+namespace s4_2012{
+    void run(){
+        while(true){
+            int numCoins=0;
+            std::cin>>numCoins;
+            if(!numCoins)break;
+            std::vector<std::vector<int> > coins(numCoins,std::vector<int>(1));
+            for(int x = 0;x<numCoins;++x){
+                std::cin>>coins[x][0];
+            }
+        }
+    }
+};
+namespace j5_2013{
+    void doThings(int& re,int gamesPlayed,std::vector<std::vector<int>> notPlayed,int fav,std::vector<int> points){
+        if(gamesPlayed==6){
+            for(int x = 1;x<5;++x){
+                if(x==fav) continue;
+                if(points[fav]<=points[x]) return;
+            }++re;
+        }
+        auto p = points;
+        for(int currentTeam = 1;currentTeam<5;++currentTeam){
+            for(int toPlay = notPlayed[currentTeam].size()-1;toPlay!=-1;--toPlay){
+                //doThings(re,gamesPlayed+1)notPlayed[currentTeam][toPlay] = other team
+                auto otherTeam = notPlayed[currentTeam][toPlay];
+                notPlayed[currentTeam].pop_back();
+                removeFirstFromVecFast(notPlayed[otherTeam],currentTeam);
+                points[currentTeam]+=3;
+                doThings(re,gamesPlayed+1,notPlayed,fav,points);
+                points[currentTeam]-=2;
+                points[otherTeam]+=1;
+                doThings(re,gamesPlayed+1,notPlayed,fav,points);
+                points[currentTeam]-=1;
+                points[otherTeam]+=2;
+                doThings(re,gamesPlayed+1,notPlayed,fav,points);
+            }
+        }
+    }
+    void run(){
+        int team,games;
+        std::vector<int> points(5,0);
+        std::vector<std::vector<int>> notPlayed(5,std::vector<int>({1,2,3,4}));
+        for(int x = 1;x<5;++x){
+            removeFirstFromVecFast(notPlayed[x],x);
+        }
+        std::cin>>team>>games;
+        for(int x = 0;x<games;++x){
+            int team1,team2,score1,score2;
+            std::cin>>team1>>team2>>score1>>score2;
+            if(score1==score2){
+                ++points[team1];
+                ++points[team2];
+            }else if(score1>score2)points[team1]+=3;
+            else points[team2]+=3;
+            removeFirstFromVecFast(notPlayed[team1],team2);
+            removeFirstFromVecFast(notPlayed[team2],team1);
+        }
+        int re = 0;
+        doThings(re,games,notPlayed,team,points);
+        std::cout<<re<<std::endl;
+    }
+};
+namespace s2_2013{
+    void run(){
+        int weight,numCars;
+        std::cin>>weight>>numCars;
+        std::vector<int> cars(numCars);
+        for(int x = 0;x<numCars;++x){
+            std::cin>>cars[x];
+        }int numCarsOff;
+        for(numCarsOff=0;numCarsOff<numCars;++numCarsOff){
+            if(numCars-numCarsOff<4){
+                int w= 0;
+                int x;
+                for(x = 0;x<numCars-numCarsOff;++x){
+                    w+=cars[x];
+                    if(w>weight){
+                        break;
+                    }++numCarsOff;
+                }//numCarsOff+=x;
+                break;
+            }else{
+                if(cars[numCarsOff]+cars[numCarsOff+1]+cars[numCarsOff+2]+cars[numCarsOff+3]>weight){
+                    int w= 0;
+                    int x;
+                    for(x = numCarsOff;x<numCarsOff+4;++x){
+                        w+=cars[x];
+                        if(w>weight){
+                            break;
+                        }++numCarsOff;
+                    }//numCarsOff+=x;
+                    break;
+                }
+            }
+        }
+        std::cout<<numCarsOff<<std::endl;
+    }
+}
+namespace s4_2013{
+    void run(){
+        int ppl,looks;
+        std::cin>>ppl>>looks;
+        std::vector<std::vector<int>> bigger(ppl+1);
+        std::vector<std::vector<int>> smaller(ppl+1);
+        for(int x = 0;x<looks;++x){
+            int a,b;
+            std::cin>>a>>b;
+            bigger[a].push_back(b);
+            for(auto& y:smaller[a]){
+                bigger[y].push_back(b);
+            }
+            smaller[b].push_back(a);
+            for(auto& y:bigger[b]){
+                smaller[y].push_back(a);
+            }
+        }
+        int one,two;
+        std::cin>>one>>two;
+        if(findFirstInVector(bigger[one],two)!=-1){
+            std::cout<<"yes"<<std::endl;
+        }else if(findFirstInVector(bigger[two],one)!=-1){
+            std::cout<<"no"<<std::endl;
+        }else
+            std::cout<<"unknown"<<std::endl;
+    }
+}
+namespace s4_2013v2{
+    void run(){
+        int ppl,looks;
+        std::cin>>ppl>>looks;
+        std::vector<std::vector<int>> adjacentList(ppl+1);
+        for(int x = 0;x<looks;++x){
+            int a,b;
+            std::cin>>a>>b;
+            adjacentList[a].push_back(b);
+        }
+        int one,two;
+        std::cin>>one>>two;
+        //bfs
+        std::vector<int> que(1,one);
+        std::unordered_map<int,int> levels;
+        levels[one]=0;
+        int level = 1;
+        while(que.size()){
+            std::vector<int> newQue;
+            for(auto a:que){
+                for(auto& x:adjacentList[a]){
+                    if(levels.find(x)==levels.end()){
+                        newQue.push_back(x);
+                        levels[x]=level;
+                    }
+                }
+            }++level;
+            que = newQue;
+        }
+        if(levels.find(two)!=levels.end()){
+            std::cout<<"yes"<<std::endl;
+            return;
+        }
+        //
+        std::vector<int> que2(1,two);
+        std::unordered_map<int,int> levels2;
+        levels2[two]=0;
+        int level2 = 1;
+        while(que2.size()){
+            std::vector<int> newQue;
+            for(auto a:que2){
+                for(auto& x:adjacentList[a]){
+                    if(levels2.find(x)==levels2.end()){
+                        newQue.push_back(x);
+                        levels2[x]=level;
+                    }
+                }
+            }++level2;
+            que2 = newQue;
+        }
+        if(levels2.find(one)!=levels2.end()){
+            std::cout<<"no"<<std::endl;
+            return;
+        }
+        else std::cout<<"unknown"<<std::endl;
+    }
+}
+void testUnordered_mapVsVecVsMap(){
+    std::unordered_map<int,int> one;
+    for(int x = 0;x<100;++x){
+        one[x]=123;
+    }
+
+    for(int x = 0;x<10000000;++x){
+        if(one.find(x)!=one.end()){
+        //if(std::find(one.begin(),one.end(),x)!=one.end()){
+            int a = 0;
+            a++;
+        }
+    }
+}
+namespace s5_2016{
+    std::string nextGener(const std::string&current){
+        std::string next = "";
+        next.resize(current.size());
+        for(int x = 0;x<current.size();++x){
+            next[x]=(current[(x+1)%current.size()]!=current[x==0?current.size()-1:x-1])+48;
+        }return next;
+    }
+    void run(){
+        long long size;
+        long long generations;
+        bool fn = 0;
+        std::string circle;
+        std::cin>>size>>generations;
+        std::cin>>circle;
+        std::unordered_map<std::string,long long> mapy;
+        //std::map<string,long long>::iterator it;
+        std::vector<std::string> aaa;
+        for(long long x = 0;x<generations;++x){
+            circle = nextGener(circle);
+            if(fn){continue;}
+            //it = mapy.find(circle);
+            if(mapy.find(circle)==mapy.end()){
+                mapy[circle]=x;
+                aaa.push_back(circle);
+                continue;
+            }
+            generations=(generations-x)%(x-mapy[circle]);
+            //circle = aaa[mapy[circle]+generations];
+            //break;
+            fn = 1;
+            x=0;
+        }std::cout<<circle;
+        //return 0;
+    }
+}
+namespace qr1_2016{
+    struct vert{
+        vert(int xz,int yz):x(xz),y(yz){};
+        vert(){};
+        int x;
+        int y;
+    };
+    void run(){
+        int verts;
+        std::cin>>verts;
+        std::vector<vert> vertys(verts);
+        std::unordered_map<int,std::vector<int> > Xs;
+        std::unordered_map<int,std::vector<int> > Ys;
+        for(int x = 0;x<verts;++x){
+            std::cin>>vertys[x].x>>vertys[x].y;
+            Xs[vertys[x].x].push_back(vertys[x].y);
+            Ys[vertys[x].y].push_back(vertys[x].x);
+        }
+        for(auto& i:Xs)
+            std::sort(i.second.begin(),i.second.end());
+        for(auto& i:Ys)
+            std::sort(i.second.begin(),i.second.end());
+        long long nums = 0;
+        for(auto& point:vertys){
+            auto a = &Xs[point.x];
+            long long up = findFirstInVector(*a,point.y);
+            long long down = a->size()-up-1;
+            if(!(down && up)) continue;
+            a = &Ys[point.y];
+            long long right = findFirstInVector(*a,point.x);
+            long long left = a->size()-right-1;
+            nums+=up*down*right*left;
+        }std::cout<<nums*2<<std::endl;
+        /*
+        for(int x = 0;x<verts;++x){
+            long long up=0;
+            long long down=0;
+            long long right=0;
+            long long left=0;
+            for(int y = 0;y<verts;++y){
+                if(x==y) continue;
+                if(vertys[x].x==vertys[y].x){
+                    if(vertys[x].y>vertys[y].y){
+                        ++up;
+                    }else{
+                        ++down;
+                    }
+                }if(vertys[x].y==vertys[y].y){
+                    if(vertys[x].x>vertys[y].x){
+                        ++right;
+                    }else{
+                        ++left;
+                    }
+                }
+            }nums+=up*down*right*left*2;
+        }*/
+    }
 }
 int main(int argc,char ** argv){
     //s2_2012();
@@ -328,8 +629,12 @@ int main(int argc,char ** argv){
     //for(int x = 0;x<60;++x)
     //s4_2015v2();
     //s4_2015v2();
-    TIME_TEST_END
-
+    //s4_2013::run();
+    qr1_2016::run();
+    //testUnordered_mapVsVecVsMap();
+    TIME_TEST_END;
+    //std::cout<<"abc"<<std::endl;
+    return 0;
     int abca =0;
     abc<int,0> sads;
     //return 0;

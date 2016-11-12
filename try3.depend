@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1477362421 source:c:\users\cerw\desktop\cpp\try3\main.cpp
+1478911745 source:c:\users\cerw\desktop\cpp\try3\main.cpp
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	"imgLoader.h"
@@ -30,7 +30,7 @@
 	<unordered_map>
 	<array>
 
-1444709878 c:\users\cerw\desktop\cpp\try3\include\glfw\glfw3.h
+1444706278 c:\users\cerw\desktop\cpp\try3\include\glfw\glfw3.h
 	<stddef.h>
 	<OpenGL/gl3.h>
 	<OpenGL/gl3ext.h>
@@ -49,10 +49,10 @@
 	<GL/glext.h>
 	<GL/glu.h>
 
-1470216766 source:c:\users\cerw\desktop\cpp\try3\src\glslthingy.cpp
+1470213166 source:c:\users\cerw\desktop\cpp\try3\src\glslthingy.cpp
 	"GLSLthingy.h"
 
-1463799504 c:\users\cerw\desktop\cpp\try3\include\glslthingy.h
+1463795904 c:\users\cerw\desktop\cpp\try3\include\glslthingy.h
 	<string>
 	<iostream>
 	<cstring>
@@ -63,10 +63,10 @@
 	<stdio.h>
 	<GLFW/glfw3.h>
 
-1465801900 source:c:\users\cerw\desktop\cpp\try3\src\sprite.cpp
+1465798300 source:c:\users\cerw\desktop\cpp\try3\src\sprite.cpp
 	"sprite.h"
 
-1465801894 c:\users\cerw\desktop\cpp\try3\include\sprite.h
+1465798294 c:\users\cerw\desktop\cpp\try3\include\sprite.h
 	<string>
 	<GL/glew.h>
 	<cstdlib>
@@ -74,16 +74,16 @@
 	"vertex.h"
 	<cstddef>
 
-1471304177 c:\users\cerw\desktop\cpp\try3\include\vertex.h
+1471300577 c:\users\cerw\desktop\cpp\try3\include\vertex.h
 	<GL/glew.h>
 
-1463549828 source:c:\users\cerw\desktop\cpp\try3\src\vertex.cpp
+1463546228 source:c:\users\cerw\desktop\cpp\try3\src\vertex.cpp
 
-1470124542 source:c:\users\cerw\desktop\cpp\try3\src\iomanager.cpp
+1470120942 source:c:\users\cerw\desktop\cpp\try3\src\iomanager.cpp
 	"IOmanager.h"
 	<fstream>
 
-1468225268 c:\users\cerw\desktop\cpp\try3\include\iomanager.h
+1468221668 c:\users\cerw\desktop\cpp\try3\include\iomanager.h
 	<vector>
 	<string>
 	<fstream>
@@ -97,13 +97,13 @@
 1463903610 c:\users\cerw\desktop\cpp\try3\include\picoong.cpp
 	<vector>
 
-1463966937 source:c:\users\cerw\desktop\cpp\try3\src\texture.cpp
+1463963337 source:c:\users\cerw\desktop\cpp\try3\src\texture.cpp
 	"texture.h"
 
-1463970263 c:\users\cerw\desktop\cpp\try3\include\texture.h
+1463966663 c:\users\cerw\desktop\cpp\try3\include\texture.h
 	<GL/glew.h>
 
-1470124419 source:c:\users\cerw\desktop\cpp\try3\src\imgloader.cpp
+1470120819 source:c:\users\cerw\desktop\cpp\try3\src\imgloader.cpp
 	"imgLoader.h"
 	"picopng.h"
 	"IOmanager.h"
@@ -111,22 +111,22 @@
 	<iostream>
 	<GLFW/glfw3.h>
 
-1463973773 c:\users\cerw\desktop\cpp\try3\include\imgloader.h
+1463970173 c:\users\cerw\desktop\cpp\try3\include\imgloader.h
 	"texture.h"
 	<string>
 
-1467905312 c:\users\cerw\desktop\cpp\try3\include\picopng.h
+1467901712 c:\users\cerw\desktop\cpp\try3\include\picopng.h
 	<vector>
 	<cstdlib>
 
-1470101637 source:c:\users\cerw\desktop\cpp\try3\include\picopng.cpp
+1470098037 source:c:\users\cerw\desktop\cpp\try3\include\picopng.cpp
 	<vector>
 	<cstdlib>
 
-1476604479 source:c:\users\cerw\desktop\cpp\try3\src\app.cpp
+1476600879 source:c:\users\cerw\desktop\cpp\try3\src\app.cpp
 	"app.h"
 
-1471764019 c:\users\cerw\desktop\cpp\try3\include\app.h
+1471760419 c:\users\cerw\desktop\cpp\try3\include\app.h
 	<map>
 	<unordered_map>
 	<vector>
@@ -147,7 +147,7 @@
 	<future>
 	<glm/glm.hpp>
 
-1471314775 c:\users\cerw\desktop\cpp\try3\include\pic.h
+1471311175 c:\users\cerw\desktop\cpp\try3\include\pic.h
 	"sprite.h"
 	<string>
 	<GL/glew.h>
@@ -159,18 +159,18 @@
 	<memory>
 	"manager.h"
 
-1471314768 source:c:\users\cerw\desktop\cpp\try3\src\pic.cpp
+1471311168 source:c:\users\cerw\desktop\cpp\try3\src\pic.cpp
 	"pic.h"
 
-1471596977 source:c:\users\cerw\desktop\cpp\try3\src\manager.cpp
+1471593377 source:c:\users\cerw\desktop\cpp\try3\src\manager.cpp
 	"manager.h"
 	<GL/glew.h>
 
-1470969526 c:\users\cerw\desktop\cpp\try3\include\manager.h
+1470965926 c:\users\cerw\desktop\cpp\try3\include\manager.h
 	<GL/glew.h>
 	"camera2D.h"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\glm.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\glm.hpp
 	"detail/_fixes.hpp"
 	<cmath>
 	<climits>
@@ -199,21 +199,21 @@
 	"vector_relational.hpp"
 	"integer.hpp"
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\detail\_fixes.hpp
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\detail\_fixes.hpp
 	<cmath>
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\fwd.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\fwd.hpp
 	"detail/type_int.hpp"
 	"detail/type_float.hpp"
 	"detail/type_vec.hpp"
 	"detail/type_mat.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_int.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_int.hpp
 	"setup.hpp"
 	<type_traits>
 	<cstdint>
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\setup.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\setup.hpp
 	<cassert>
 	<cstddef>
 	<cuda.h>
@@ -224,50 +224,50 @@
 	<pmmintrin.h>
 	<emmintrin.h>
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_float.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_float.hpp
 	"setup.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec.hpp
 	"precision.hpp"
 	"type_int.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\precision.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\precision.hpp
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat.hpp
 	"precision.hpp"
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\vec2.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\vec2.hpp
 	"detail/type_vec2.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec2.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec2.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec2.inl"
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\detail\_swizzle.hpp
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\detail\_swizzle.hpp
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\detail\_swizzle_func.hpp
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\detail\_swizzle_func.hpp
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec2.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec2.inl
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\vec3.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\vec3.hpp
 	"detail/type_vec3.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec3.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec3.hpp
 	"type_vec.hpp"
 	"_swizzle.hpp"
 	"_swizzle_func.hpp"
 	<cstddef>
 	"type_vec3.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec3.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec3.inl
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\vec4.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\vec4.hpp
 	"detail/type_vec4.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec4.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec4.hpp
 	"setup.hpp"
 	"type_vec.hpp"
 	"_swizzle.hpp"
@@ -275,21 +275,21 @@
 	<cstddef>
 	"type_vec4.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec4.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec4.inl
 	"type_vec4_sse2.inl"
 	"type_vec4_avx.inl"
 	"type_vec4_avx2.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec4_sse2.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec4_sse2.inl
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec4_avx.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec4_avx.inl
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec4_avx2.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec4_avx2.inl
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\mat2x2.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\mat2x2.hpp
 	"detail/type_mat2x2.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat2x2.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat2x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_mat.hpp"
@@ -297,12 +297,12 @@
 	<cstddef>
 	"type_mat2x2.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat2x2.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat2x2.inl
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\mat2x3.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\mat2x3.hpp
 	"detail/type_mat2x3.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat2x3.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat2x3.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -311,12 +311,12 @@
 	<cstddef>
 	"type_mat2x3.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat2x3.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat2x3.inl
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\mat2x4.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\mat2x4.hpp
 	"detail/type_mat2x4.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat2x4.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat2x4.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
@@ -325,12 +325,12 @@
 	<cstddef>
 	"type_mat2x4.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat2x4.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat2x4.inl
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\mat3x2.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\mat3x2.hpp
 	"detail/type_mat3x2.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat3x2.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat3x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -339,12 +339,12 @@
 	<cstddef>
 	"type_mat3x2.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat3x2.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat3x2.inl
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\mat3x3.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\mat3x3.hpp
 	"detail/type_mat3x3.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat3x3.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat3x3.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_mat.hpp"
@@ -352,12 +352,12 @@
 	<cstddef>
 	"type_mat3x3.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat3x3.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat3x3.inl
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\mat3x4.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\mat3x4.hpp
 	"detail/type_mat3x4.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat3x4.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat3x4.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -366,12 +366,12 @@
 	<cstddef>
 	"type_mat3x4.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat3x4.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat3x4.inl
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\mat4x2.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\mat4x2.hpp
 	"detail/type_mat4x2.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat4x2.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat4x2.hpp
 	"../fwd.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
@@ -380,12 +380,12 @@
 	<cstddef>
 	"type_mat4x2.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat4x2.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat4x2.inl
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\mat4x3.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\mat4x3.hpp
 	"detail/type_mat4x3.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat4x3.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat4x3.hpp
 	"../fwd.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -394,12 +394,12 @@
 	<cstddef>
 	"type_mat4x3.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat4x3.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat4x3.inl
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\mat4x4.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\mat4x4.hpp
 	"detail/type_mat4x4.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat4x4.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat4x4.hpp
 	"../fwd.hpp"
 	"type_vec4.hpp"
 	"type_mat.hpp"
@@ -407,28 +407,28 @@
 	<cstddef>
 	"type_mat4x4.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat4x4.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_mat4x4.inl
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\trigonometric.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\trigonometric.hpp
 	"detail/func_trigonometric.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_trigonometric.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_trigonometric.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"func_trigonometric.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_trigonometric.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_trigonometric.inl
 	"_vectorize.hpp"
 	<cmath>
 	<limits>
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\detail\_vectorize.hpp
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\detail\_vectorize.hpp
 	"type_vec1.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec1.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec1.hpp
 	"../fwd.hpp"
 	"type_vec.hpp"
 	"_swizzle.hpp"
@@ -436,12 +436,12 @@
 	<cstddef>
 	"type_vec1.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec1.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_vec1.inl
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\exponential.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\exponential.hpp
 	"detail/func_exponential.hpp"
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_exponential.hpp
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_exponential.hpp
 	"type_vec1.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -449,32 +449,32 @@
 	<cmath>
 	"func_exponential.inl"
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_exponential.inl
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_exponential.inl
 	"func_vector_relational.hpp"
 	"_vectorize.hpp"
 	<limits>
 	<cmath>
 	<cassert>
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_vector_relational.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_vector_relational.hpp
 	"precision.hpp"
 	"setup.hpp"
 	"func_vector_relational.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_vector_relational.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_vector_relational.inl
 	<limits>
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\common.hpp
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\common.hpp
 	"detail/func_common.hpp"
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_common.hpp
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_common.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"type_int.hpp"
 	"_fixes.hpp"
 	"func_common.inl"
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_common.inl
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_common.inl
 	"func_vector_relational.hpp"
 	"type_vec2.hpp"
 	"type_vec3.hpp"
@@ -482,43 +482,43 @@
 	"_vectorize.hpp"
 	<limits>
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\packing.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\packing.hpp
 	"detail/func_packing.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_packing.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_packing.hpp
 	"type_vec2.hpp"
 	"type_vec4.hpp"
 	"func_packing.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_packing.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_packing.inl
 	"func_common.hpp"
 	"type_half.hpp"
 	"../fwd.hpp"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_half.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_half.hpp
 	"setup.hpp"
 	"type_half.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_half.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\type_half.inl
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\geometric.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\geometric.hpp
 	"detail/func_geometric.hpp"
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_geometric.hpp
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_geometric.hpp
 	"type_vec3.hpp"
 	"func_geometric.inl"
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_geometric.inl
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_geometric.inl
 	"func_exponential.hpp"
 	"func_common.hpp"
 	"type_vec2.hpp"
 	"type_vec4.hpp"
 	"type_float.hpp"
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\matrix.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\matrix.hpp
 	"detail/func_matrix.hpp"
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_matrix.hpp
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_matrix.hpp
 	"../detail/precision.hpp"
 	"../detail/setup.hpp"
 	"../detail/type_mat.hpp"
@@ -536,24 +536,24 @@
 	"../mat4x4.hpp"
 	"func_matrix.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_matrix.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_matrix.inl
 	"../geometric.hpp"
 	<limits>
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\vector_relational.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\vector_relational.hpp
 	"detail/func_vector_relational.hpp"
 
-1468694849 c:\users\cerw\desktop\cpp\try3\include\glm\integer.hpp
+1468691249 c:\users\cerw\desktop\cpp\try3\include\glm\integer.hpp
 	"detail/func_integer.hpp"
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_integer.hpp
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_integer.hpp
 	"setup.hpp"
 	"precision.hpp"
 	"func_common.hpp"
 	"func_vector_relational.hpp"
 	"func_integer.inl"
 
-1468694847 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_integer.inl
+1468691247 c:\users\cerw\desktop\cpp\try3\include\glm\detail\func_integer.inl
 	"type_vec2.hpp"
 	"type_vec3.hpp"
 	"type_vec4.hpp"
@@ -562,11 +562,11 @@
 	<intrin.h>
 	<limits>
 
-1471428377 c:\users\cerw\desktop\cpp\try3\include\camera2d.h
+1471424777 c:\users\cerw\desktop\cpp\try3\include\camera2d.h
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\gtc\matrix_transform.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\gtc\matrix_transform.hpp
 	"../mat4x4.hpp"
 	"../vec2.hpp"
 	"../vec3.hpp"
@@ -574,25 +574,25 @@
 	"../gtc/constants.hpp"
 	"matrix_transform.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\gtc\constants.hpp
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\gtc\constants.hpp
 	"../detail/setup.hpp"
 	"constants.inl"
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\gtc\constants.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\gtc\constants.inl
 	<limits>
 
-1468694848 c:\users\cerw\desktop\cpp\try3\include\glm\gtc\matrix_transform.inl
+1468691248 c:\users\cerw\desktop\cpp\try3\include\glm\gtc\matrix_transform.inl
 	"../geometric.hpp"
 	"../trigonometric.hpp"
 	"../matrix.hpp"
 
-1471599896 source:c:\users\cerw\desktop\cpp\try3\src\camera2d.cpp
+1471596296 source:c:\users\cerw\desktop\cpp\try3\src\camera2d.cpp
 	"camera2D.h"
 
-1472552353 source:c:\users\cerw\desktop\cpp\try3\src\spritebatch.cpp
+1472548753 source:c:\users\cerw\desktop\cpp\try3\src\spritebatch.cpp
 	"SpriteBatch.h"
 
-1472551049 c:\users\cerw\desktop\cpp\try3\include\spritebatch.h
+1472547449 c:\users\cerw\desktop\cpp\try3\include\spritebatch.h
 	"vertex.h"
 	<glm/glm.hpp>
 	<GL/glew.h>
@@ -602,22 +602,22 @@
 	<cstdlib>
 	<algorithm>
 
-1471310932 source:c:\users\cerw\desktop\cpp\try3\src\keyboardstuff.cpp
+1471307332 source:c:\users\cerw\desktop\cpp\try3\src\keyboardstuff.cpp
 	"keyboardStuff.h"
 
-1471310932 c:\users\cerw\desktop\cpp\try3\include\keyboardstuff.h
+1471307332 c:\users\cerw\desktop\cpp\try3\include\keyboardstuff.h
 
-1471314286 source:c:\users\cerw\desktop\cpp\try3\src\timeing.cpp
+1471310686 source:c:\users\cerw\desktop\cpp\try3\src\timeing.cpp
 	"timeing.h"
 
-1471314254 c:\users\cerw\desktop\cpp\try3\include\timeing.h
+1471310654 c:\users\cerw\desktop\cpp\try3\include\timeing.h
 
-1471314293 source:c:\users\cerw\desktop\cpp\try3\src\timeings.h.cpp
+1471310693 source:c:\users\cerw\desktop\cpp\try3\src\timeings.h.cpp
 	"Timeings.h.h"
 
-1471314290 c:\users\cerw\desktop\cpp\try3\include\timeings.h.h
+1471310690 c:\users\cerw\desktop\cpp\try3\include\timeings.h.h
 
-1471599675 c:\users\cerw\desktop\cpp\try3\include\fpslimiter.h
+1471596075 c:\users\cerw\desktop\cpp\try3\include\fpslimiter.h
 	<GL/glew.h>
 	<GLFW/glfw3.h>
 	<cstdlib>
@@ -625,42 +625,42 @@
 	<thread>
 	<iostream>
 
-1472525809 source:c:\users\cerw\desktop\cpp\try3\src\fpslimiter.cpp
+1472522209 source:c:\users\cerw\desktop\cpp\try3\src\fpslimiter.cpp
 	"fpslimiter.h"
 
-1471770409 source:c:\users\cerw\desktop\cpp\try3\src\projectile.cpp
+1471766809 source:c:\users\cerw\desktop\cpp\try3\src\projectile.cpp
 	"projectile.h"
 
-1471768964 c:\users\cerw\desktop\cpp\try3\include\projectile.h
+1471765364 c:\users\cerw\desktop\cpp\try3\include\projectile.h
 	<glm/glm.hpp>
 	"SpriteBatch.h"
 	<GL/glew.h>
 	<iostream>
 
-1472005739 source:c:\users\cerw\desktop\cpp\try3\src\entity.cpp
+1472002139 source:c:\users\cerw\desktop\cpp\try3\src\entity.cpp
 	"entity.h"
 
-1472005705 c:\users\cerw\desktop\cpp\try3\include\entity.h
+1472002105 c:\users\cerw\desktop\cpp\try3\include\entity.h
 	<glm/glm.hpp>
 	<GL/glew.h>
 
-1471973438 source:c:\users\cerw\desktop\cpp\try3\src\human.cpp
+1471969838 source:c:\users\cerw\desktop\cpp\try3\src\human.cpp
 	"human.h"
 	<random>
 
-1471749779 c:\users\cerw\desktop\cpp\try3\include\human.h
+1471746179 c:\users\cerw\desktop\cpp\try3\include\human.h
 	"entity.h"
 
-1471973446 source:c:\users\cerw\desktop\cpp\try3\src\player.cpp
+1471969846 source:c:\users\cerw\desktop\cpp\try3\src\player.cpp
 	"player.h"
 
-1471745670 c:\users\cerw\desktop\cpp\try3\include\player.h
+1471742070 c:\users\cerw\desktop\cpp\try3\include\player.h
 	"entity.h"
 
-1471998086 c:\users\cerw\desktop\cpp\try3\include\block.h
+1471994486 c:\users\cerw\desktop\cpp\try3\include\block.h
 	"entity.h"
 	<GL/glew.h>
 
-1472363776 source:c:\users\cerw\desktop\cpp\try3\src\block.cpp
+1472360176 source:c:\users\cerw\desktop\cpp\try3\src\block.cpp
 	"block.h"
 
